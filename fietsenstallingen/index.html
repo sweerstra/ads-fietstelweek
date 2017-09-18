@@ -1,0 +1,27 @@
+<html>
+<head>
+    <title>Fietsenstallingen</title>
+
+    <style>
+        html, body { font-family: 'Roboto', sans-serif; margin: 0; padding: 0; overflow-y: hidden; }
+        header { margin: 20px; }
+        label#not-found { color: red; vertical-align: middle; margin-left: 10px; display: none; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h2>Zoek naar fietsenstallingen</h2>
+    <input id="city" value="Tilburg" title="city"/>
+    <button id="search">Zoek</button>
+    <label id="not-found">Deze plaats is niet gevonden.</label>
+</header>
+
+<div id="map">
+</div>
+
+<script src="https://openlayers.org/api/OpenLayers.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>

@@ -3,9 +3,39 @@
     <title>Fietsenstallingen</title>
 
     <style>
-        html, body { font-family: 'Roboto', sans-serif; margin: 0; padding: 0; overflow-y: hidden; }
-        header { margin: 20px; }
-        label#not-found { color: red; vertical-align: middle; margin-left: 10px; display: none; }
+        html, body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-y: hidden;
+        }
+
+        header {
+            margin: 20px;
+        }
+
+        label#not-found {
+            color: red;
+            vertical-align: middle;
+            margin-left: 10px;
+            display: none;
+        }
+
+        aside {
+            width: 300px;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        #map {
+            width: 80%;
+        }
+
+        @media (max-width: 996px) {
+            #map {
+                width: 100%;
+            }
+        }
     </style>
 </head>
 <body>
@@ -17,7 +47,13 @@
     <label id="not-found">Deze plaats is niet gevonden.</label>
 </header>
 
-<div id="map">
+<div style="display: flex;">
+    <div id="map">
+    </div>
+
+    <aside id="sidebar">
+        Selecteer een fietsenstalling
+    </aside>
 </div>
 
 <script src="https://openlayers.org/api/OpenLayers.js"></script>

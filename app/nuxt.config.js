@@ -14,25 +14,20 @@ module.exports = {
     ]
   },
   /*
-  ** Customize the progress bar color
-  */
-  loading: { color: '#3B8070' },
-  /*
-  ** Build configuration
-  */
-  build: {
-    /*
-    ** Run ESLint on save
+    ** Customize the progress-bar color
     */
-    extend (config, ctx) {
-      if (ctx.dev && ctx.isClient) {
-        config.module.rules.push({
-          enforce: 'pre',
-          test: /\.(js|vue)$/,
-          loader: 'eslint-loader',
-          exclude: /(node_modules)/
-        })
-      }
-    }
-  }
+    loading: { color: '#ff7f28' }, 
+    /*
+    ** Build configuration
+    */
+    build: {
+      vendor: ['vuetify']
+    },
+    plugins: ['~plugins/vuetify.js'],
+    css: [
+      { src: '~assets/app.styl', lang: 'styl' },
+      { src: '~assets/style.css', lang: 'css' }
+    ]
 }
+
+

@@ -24,7 +24,7 @@
       </v-list>
     </v-navigation-drawer>
     <v-toolbar
-      fixed class="orange-highlight">
+      fixed class="red">
       <v-toolbar-side-icon class="white--text" @click.native.stop="drawer = !drawer"></v-toolbar-side-icon>
       <v-btn class="white--text"
              icon
@@ -56,7 +56,7 @@
         fixed: false,
         items: [
           {icon: 'home', title: 'Home', to: '/'},
-          {icon: 'network_check', title: 'Analytics', to: '/analytics'}
+          {icon: 'network_check', title: 'Analytics', to: '/'}
         ],
         miniVariant: false,
         right: false,

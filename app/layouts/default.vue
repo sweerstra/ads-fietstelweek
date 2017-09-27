@@ -1,14 +1,14 @@
 <template>
   <v-app light toolbar footer>
-    <v-navigation-drawer 
+    <v-navigation-drawer
       persistent
       :mini-variant="miniVariant"
       :clipped="clipped"
-      :enable-resize-watcher= "enableResize"
+      :enable-resize-watcher="enableResize"
       v-model="drawer"
     >
       <v-list>
-        <v-list-tile 
+        <v-list-tile
           router
           v-for="(item, i) in items"
           :key="i"
@@ -23,12 +23,12 @@
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
-    <v-toolbar 
+    <v-toolbar
       fixed class="orange-highlight">
       <v-toolbar-side-icon class="white--text" @click.native.stop="drawer = !drawer"></v-toolbar-side-icon>
-      <v-btn class="white--text" 
-        icon
-        @click.native.stop="miniVariant = !miniVariant"
+      <v-btn class="white--text"
+             icon
+             @click.native.stop="miniVariant = !miniVariant"
       >
         <v-icon v-html="miniVariant ? 'chevron_right' : 'chevron_left'"></v-icon>
       </v-btn>
@@ -36,7 +36,7 @@
     </v-toolbar>
     <main>
       <v-container fluid>
-        <nuxt />
+        <nuxt/>
       </v-container>
     </main>
     <v-footer
@@ -55,8 +55,8 @@
         drawer: true,
         fixed: false,
         items: [
-          { icon: 'home', title: 'Home', to: '/' },
-          { icon: 'network_check', title: 'Analytics', to: '/analytics' }
+          {icon: 'home', title: 'Home', to: '/'},
+          {icon: 'network_check', title: 'Analytics', to: '/analytics'}
         ],
         miniVariant: false,
         right: false,

@@ -39,7 +39,6 @@
         <nuxt />
       </v-container>
     </main>
-    <nuxt />
     <v-footer
       :fixed="fixed">
       <v-spacer></v-spacer>

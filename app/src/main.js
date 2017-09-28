@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import VueOpenLayers from 'vue-openlayers';
+import VueOpenLayers from './vendor/vue-openlayers';
 import '../node_modules/openlayers/css/ol.css';
 import App from './App';
 import router from './router';

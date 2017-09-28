@@ -1,59 +1,38 @@
 <template>
-  <div>
-    <v-card class="grey lighten-4 elevation-0">
-      <v-card-text>
-        <v-container fluid>
-          <v-layout row>
-            <v-flex xs8>
-              <v-text-field
-                name="city"
-                :label="mapLabel"
-                v-model="city"
-                id="city"
-                :error="notFound"
-              ></v-text-field>
-            </v-flex>
-            <v-flex xs4>
-              <v-btn id="search" :disabled="!city" @click.native="getBicycleStorage" flat primary>Zoeken</v-btn>
-            </v-flex>
-          </v-layout>
-        </v-container>
-      </v-card-text>
-    </v-card>
-
-    <ol-map :center="center" :zoom="zoom">
-      <ol-marker v-for="(marker, index) in markers" :coords="marker" :key="index"></ol-marker>
-    </ol-map>
-  </div>
+  <ol-map :center="center" :zoom="zoom">
+    <ol-marker v-for="(marker, index) in markers" :coords="marker" :key="index"></ol-marker>
+  </ol-map>
 </template>
 
 <script>
   /* eslint-disable no-underscore-dangle,no-console */
+  import { EventBus } from '../event-bus';
 
   export default {
     data: () => ({
-      city: 'Tilburg',
       markers: [],
       center: [5.0808, 51.5590],
       zoom: 13,
-      notFound: false,
     }),
 
     created() {
-      this.getBicycleStorage();
+      this.getBicycleStorage('Tilburg');
+
+      EventBus.$on('search', (input) => {
+        this.getBicycleStorage(input);
+      });
     },
 
     methods: {
-      getBicycleStorage() {
+      getBicycleStorage(input) {
         fetch('https://i321720.iris.fhict.nl/fietsenstallingen/data.php')
           .then(data => data.json())
           .then((json) => {
-            const value = this.city.toLowerCase();
+            const value = input.toLowerCase();
             const data = json.Fietsenstallingen.Fietsenstalling;
             const storages = data.filter(f => f.Plaats.__cdata.toLowerCase() === value);
 
-            this.notFound = !storages.length;
-            if (this.notFound) return;
+            if (!storages.length) return;
 
             this.markers = storages.map(({ Coordinaten }) => (Coordinaten
               ? Coordinaten.split(',').map(Number)
@@ -84,12 +63,6 @@
             contact: data.BeheerderContact.__cdata,
           },
         };
-      },
-    },
-
-    computed: {
-      mapLabel() {
-        return this.notFound ? 'Geen plaats gevonden' : 'Zoek een plaats';
       },
     },
   };

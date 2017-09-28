@@ -1,32 +1,25 @@
 <template>
   <div>
-    <header>
-
-
-      <!-- <input id="city" v-model="city" title="city"/>
-      <button id="search" :disabled="!city" @click="getBicycleStorage">Zoek</button>
-       -->
-      <v-card class="grey lighten-4 elevation-0">
-        <v-card-text>
-          <v-container fluid>
-            <v-layout row>
-              <v-flex xs4>
-                <v-subheader>Zoek naar fietsenstallingen</v-subheader>
-              </v-flex>
-              <v-flex xs8>
-                <v-text-field
-                  name="city"
-                  label="Zoek stad"
-                  id="city"
-                ></v-text-field>
-                <v-btn  id="search" :disabled="!city" @click.native="getBicycleStorage" flat primary>Primary</v-btn>
-              </v-flex>
-            </v-layout>
-          </v-container>
-        </v-card-text>
-      </v-card>
-
-    </header>
+    <v-card class="grey lighten-4 elevation-0">
+      <v-card-text>
+        <v-container fluid>
+          <v-layout row>
+            <v-flex xs8>
+              <v-text-field
+                name="city"
+                :label="mapLabel"
+                v-model="city"
+                id="city"
+                :error="notFound"
+              ></v-text-field>
+            </v-flex>
+            <v-flex xs4>
+              <v-btn id="search" :disabled="!city" @click.native="getBicycleStorage" flat primary>Zoeken</v-btn>
+            </v-flex>
+          </v-layout>
+        </v-container>
+      </v-card-text>
+    </v-card>
 
     <ol-map :center="center" :zoom="zoom">
       <ol-marker v-for="(marker, index) in markers" :coords="marker" :key="index"></ol-marker>
@@ -91,6 +84,12 @@
             contact: data.BeheerderContact.__cdata,
           },
         };
+      },
+    },
+
+    computed: {
+      mapLabel() {
+        return this.notFound ? 'Geen plaats gevonden' : 'Zoek een plaats';
       },
     },
   };

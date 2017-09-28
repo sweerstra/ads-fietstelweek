@@ -1,7 +1,8 @@
 <template>
-  <v-app light toolbar footer>
+  <v-app id="e3" light toolbar footer>
     <v-navigation-drawer
       persistent
+      :clipped="clipped"
       :enable-resize-watcher="enableResize"
       v-model="drawer"
     >
@@ -24,8 +25,22 @@
     <v-toolbar
       fixed class="red">
       <v-toolbar-side-icon class="white--text" @click.native.stop="drawer = !drawer"></v-toolbar-side-icon>
+      <v-btn class="white--text"
+             icon
+             @click.native.stop="miniVariant = !miniVariant"
+      >
+        <v-icon v-html="miniVariant ? 'chevron_right' : 'chevron_left'"></v-icon>
       </v-btn>
       <v-toolbar-title class="white--text" v-text="title"></v-toolbar-title>
+      <v-spacer></v-spacer>
+      <v-text-field
+        :label="mapLabel"
+        v-model="city"
+        id="city"
+        append-icon="search"
+        dark
+        :error="notFound"
+      ></v-text-field>
     </v-toolbar>
     <main>
       <v-container fluid>
@@ -63,4 +78,15 @@
   #app {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
   }
+
+  #e3, #e3 .container {
+    min-height: 700px;
+    overflow: hidden;
+    z-index: 0;
+  }
+
+  #e3 .input-group__details:after {
+    background-color: rgba(255, 255, 255, 0.32) !important;
+  }
+
 </style>

@@ -95,7 +95,7 @@
   };
 </script>
 
-<style>
+<style scoped>
   html, body {
     font-family: 'Roboto', sans-serif;
     margin: 0;

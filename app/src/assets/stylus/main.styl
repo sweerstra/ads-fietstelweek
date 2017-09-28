@@ -1,9 +1,17 @@
-/** Stylus Styles */
+// Specify overrides (theme and/or base variables etc.)
+// See https://vuetifyjs.com/quick-start
+$theme := {
+  primary: red
+  accent: #ce93d8
+  secondary: #424242
+  info: #0D47A1
+  warning: #ffb300
+  error: #B71C1C
+  success: #2E7D32
+}
 
-// Available variables https://github.com/vuetifyjs/vuetify/blob/master/src/stylus/settings/_variables.styl
+// Import Vuetify styling
+@require '~vuetify/src/stylus/main.styl'
 
-{{#alacarte}}
-@import '../../node_modules/vuetify/src/stylus/app'
-{{else}}
-@import '../../node_modules/vuetify/src/stylus/main'
-{{/alacarte}}
+.page
+  @extend .fade-transition

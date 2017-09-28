@@ -25,12 +25,6 @@
     <v-toolbar
       fixed class="red">
       <v-toolbar-side-icon class="white--text" @click.native.stop="drawer = !drawer"></v-toolbar-side-icon>
-      <v-btn class="white--text"
-             icon
-             @click.native.stop="miniVariant = !miniVariant"
-      >
-        <v-icon v-html="miniVariant ? 'chevron_right' : 'chevron_left'"></v-icon>
-      </v-btn>
       <v-toolbar-title class="white--text" v-text="title"></v-toolbar-title>
       <v-spacer></v-spacer>
       <v-text-field
@@ -88,5 +82,4 @@
   #e3 .input-group__details:after {
     background-color: rgba(255, 255, 255, 0.32) !important;
   }
-
 </style>

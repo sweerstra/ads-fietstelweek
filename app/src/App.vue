@@ -2,8 +2,6 @@
   <v-app light toolbar footer>
     <v-navigation-drawer
       persistent
-      :mini-variant="miniVariant"
-      :clipped="clipped"
       :enable-resize-watcher="enableResize"
       v-model="drawer"
     >
@@ -26,11 +24,6 @@
     <v-toolbar
       fixed class="red">
       <v-toolbar-side-icon class="white--text" @click.native.stop="drawer = !drawer"></v-toolbar-side-icon>
-      <v-btn class="white--text"
-             icon
-             @click.native.stop="miniVariant = !miniVariant"
-      >
-        <v-icon v-html="miniVariant ? 'chevron_right' : 'chevron_left'"></v-icon>
       </v-btn>
       <v-toolbar-title class="white--text" v-text="title"></v-toolbar-title>
     </v-toolbar>
@@ -42,7 +35,7 @@
     <v-footer
       :fixed="fixed">
       <v-spacer></v-spacer>
-      <span>&copy; 2017 - bicycle-storage</span>
+      <span>&copy; 2017 - Bicycle data</span>
     </v-footer>
   </v-app>
 </template>
@@ -52,14 +45,12 @@
 
   export default {
     data: ()  => ({
-      clipped: false,
       drawer: true,
       fixed: true,
       items: [
         {icon: 'home', title: 'Home', to: '/'},
-        {icon: 'network_check', title: 'Analytics', to: '/'}
+        {icon: 'network_check', title: 'Graphs', to: '/graph'}
       ],
-      miniVariant: false,
       right: false,
       rightDrawer: false,
       enableResize: true,

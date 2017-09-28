@@ -1,10 +1,31 @@
 <template>
   <div>
     <header>
-      <h2>Zoek naar fietsenstallingen</h2>
-      <input id="city" v-model="city" title="city"/>
+
+
+      <!-- <input id="city" v-model="city" title="city"/>
       <button id="search" :disabled="!city" @click="getBicycleStorage">Zoek</button>
-      <label id="not-found" v-if="notFound">Deze plaats is niet gevonden.</label>
+       -->
+      <v-card class="grey lighten-4 elevation-0">
+        <v-card-text>
+          <v-container fluid>
+            <v-layout row>
+              <v-flex xs4>
+                <v-subheader>Zoek naar fietsenstallingen</v-subheader>
+              </v-flex>
+              <v-flex xs8>
+                <v-text-field
+                  name="city"
+                  label="Zoek stad"
+                  id="city"
+                ></v-text-field>
+                <v-btn  id="search" :disabled="!city" @click.native="getBicycleStorage" flat primary>Primary</v-btn>
+              </v-flex>
+            </v-layout>
+          </v-container>
+        </v-card-text>
+      </v-card>
+
     </header>
 
     <ol-map :center="center" :zoom="zoom">

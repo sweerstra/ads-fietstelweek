@@ -54,7 +54,7 @@
     data: ()  => ({
       clipped: false,
       drawer: true,
-      fixed: false,
+      fixed: true,
       items: [
         {icon: 'home', title: 'Home', to: '/'},
         {icon: 'network_check', title: 'Analytics', to: '/'}
@@ -63,9 +63,9 @@
       right: false,
       rightDrawer: false,
       enableResize: true,
-      title: 'bicycle-storage'
-    }),
-  }
+      title: 'Bicycle data'
+    })
+  };
 </script>
 
 <style>

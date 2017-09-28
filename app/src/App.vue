@@ -14,10 +14,10 @@
           :to="item.to"
         >
           <v-list-tile-action>
-            <v-icon v-html="item.icon"></v-icon>
+            <v-icon class="red--text" v-html="item.icon"></v-icon>
           </v-list-tile-action>
           <v-list-tile-content>
-            <v-list-tile-title v-text="item.title"></v-list-tile-title>
+            <v-list-tile-title  class="black--text" v-text="item.title"></v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
       </v-list>
@@ -55,13 +55,11 @@
   export default {
     data: ()  => ({
       drawer: true,
-      fixed: true,
       items: [
         {icon: 'home', title: 'Home', to: '/'},
         {icon: 'network_check', title: 'Graphs', to: '/graph'}
       ],
-      right: false,
-      rightDrawer: false,
+      clipped: true,
       enableResize: true,
       title: 'Bicycle data'
     })
@@ -81,5 +79,13 @@
 
   #e3 .input-group__details:after {
     background-color: rgba(255, 255, 255, 0.32) !important;
+  }
+  
+  .input-group__append-icon {
+    color: white !important;
+  }
+
+  #city {
+    caret-color:white;
   }
 </style>

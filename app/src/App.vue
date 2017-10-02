@@ -101,4 +101,8 @@
   #city {
     caret-color: white;
   }
+
+  .input-group__append-icon {
+    color: white !important;
+  }
 </style>

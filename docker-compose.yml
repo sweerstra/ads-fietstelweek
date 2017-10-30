@@ -1,0 +1,10 @@
+version: '2'
+services:
+  mongod:
+    image: dockerfile/mongodb
+    restart: always
+    container_name: mongodb
+    ports:
+      - '27017:27017'
+    volumes:
+      - '/opt/data/db'      

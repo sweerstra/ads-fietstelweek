@@ -1,7 +1,7 @@
 version: '2'
 services:
   mongod:
-    image: dockerfile/mongodb
+    image: mongod
     restart: always
     container_name: mongodb
     ports:

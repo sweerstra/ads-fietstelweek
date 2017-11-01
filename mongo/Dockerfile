@@ -19,8 +19,7 @@ RUN \
 # VOLUME ["/data/db"]
 
 # Define directories to copy.
-
-COPY /opt/data/db /data/db
+VOLUME ["/data/db"]
 
 # Define working directory.
 WORKDIR /data

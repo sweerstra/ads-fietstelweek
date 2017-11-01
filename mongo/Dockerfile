@@ -16,7 +16,11 @@ RUN \
   rm -rf /var/lib/apt/lists/*
 
 # Define mountable directories.
-VOLUME ["/data/db"]
+# VOLUME ["/data/db"]
+
+# Define directories to copy.
+
+COPY /opt/data/db /data/db
 
 # Define working directory.
 WORKDIR /data

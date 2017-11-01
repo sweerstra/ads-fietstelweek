@@ -5,6 +5,4 @@ services:
     restart: always
     container_name: mongodb
     ports:
-      - '27017:27017'
-    volumes:
-      - '/opt/data/db'      
+      - '27017:27017'   

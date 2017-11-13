@@ -6,7 +6,7 @@
 
 <script>
   /* eslint-disable no-underscore-dangle,no-console */
-  import { EventBus } from '../event-bus';
+  // import { EventBus } from '../event-bus';
 
   export default {
     data: () => ({
@@ -16,54 +16,11 @@
     }),
 
     created() {
-      this.getBicycleStorage('Tilburg');
+      // this.getBicycleStorage('Tilburg');
 
-      EventBus.$on('search', (input) => {
-        this.getBicycleStorage(input);
-      });
-    },
-
-    methods: {
-      getBicycleStorage(input) {
-        fetch('https://i321720.iris.fhict.nl/fietsenstallingen/data.php')
-          .then(data => data.json())
-          .then((json) => {
-            const value = input.toLowerCase();
-            const data = json.Fietsenstallingen.Fietsenstalling;
-            const storages = data.filter(f => f.Plaats.__cdata.toLowerCase() === value);
-
-            if (!storages.length) return;
-
-            this.markers = storages.map(({ Coordinaten }) => (Coordinaten
-              ? Coordinaten.split(',').map(Number)
-              : undefined));
-
-            this.center = this.markers[0];
-            this.zoom = this.markers.length > 10 ? 12 : 13;
-          });
-      },
-
-      formatStalling(data) {
-        return {
-          naam: data.Naam.__cdata,
-          omschrijving: data.Omschrijving ? data.Omschrijving.__cdata : null,
-          gemeente: data.Gemeente.__cdata,
-          straat: data.Straat.__cdata,
-          postcode: data.Postcode.__cdata,
-          plaats: data.Plaats.__cdata,
-          url: data.Url,
-          toegang: data.Toegangscontrole ? data.Toegangscontrole.__cdata : null,
-          capaciteit: data.CapaciteitTotaal,
-          openingstijden: data.Openingstijden,
-          isStationStalling: data.Stationsstalling.toLowerCase() === 'ja',
-          type: data.Type,
-          bewaakt: data.Type.toLowerCase() === 'bewaakt',
-          beheerder: {
-            naam: data.Beheerder.__cdata,
-            contact: data.BeheerderContact.__cdata,
-          },
-        };
-      },
+      // EventBus.$on('search', (input) => {
+      //   this.getBicycleStorage(input);
+      // });
     },
   };
 </script>

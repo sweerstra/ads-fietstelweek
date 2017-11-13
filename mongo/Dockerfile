@@ -25,7 +25,7 @@ VOLUME "/data/db"
 WORKDIR /data
 
 # Add dataset
-CMD mongoimport --host mongodb --db brabant --collection oisterwijk --type json --file /data/db/TilburgOisterwijkLinks.geojson
+CMD mongoimport --db brabant --collection oisterwijk --type json --file /data/db/TilburgOisterwijkLinks.geojson
 # mongoimport --db brabant --collection oisterwijk --type json --file ~/Downloads/TilburgOisterwijkLinks.geojson
 
 # Define default command.

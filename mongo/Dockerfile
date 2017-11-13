@@ -24,9 +24,12 @@ VOLUME ["/data/db/brabant-2015.geojson"]
 # Define working directory.
 WORKDIR /data
 
+# Add dataset
+CMD mongoimport --host mongodb --db brabant --collection oisterwijk --type json --file /data/db/TilburgOisterwijkLinks.geojson
+# mongoimport --db brabant --collection oisterwijk --type json --file ~/Downloads/TilburgOisterwijkLinks.geojson
+
 # Define default command.
 CMD ["mongod"]
-CMD mongoimport --host mongodb --db reach-engine --collection brabant-2015 --type json --file /data/db/brabant-2015.geojson
 
 # Expose ports.
 #   - 27017: process

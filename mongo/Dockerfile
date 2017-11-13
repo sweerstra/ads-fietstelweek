@@ -26,6 +26,7 @@ WORKDIR /data
 
 # Define default command.
 CMD ["mongod"]
+CMD mongoimport --host mongodb --db reach-engine --collection brabant-2015 --type json --file /data/db/brabant-2015.geojson
 
 # Expose ports.
 #   - 27017: process

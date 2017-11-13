@@ -19,7 +19,7 @@ RUN \
 # VOLUME ["/data/db"]
 
 # Define directories to copy.
-VOLUME ["/opt/data/db/brabant-2015.geojson"]
+VOLUME ["/data/db/brabant-2015.geojson"]
 
 # Define working directory.
 WORKDIR /data

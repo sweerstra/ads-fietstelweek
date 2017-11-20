@@ -14,7 +14,7 @@
       <file leaf-file-name="Map.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/Map.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="878">
+            <state relative-caret-position="735">
               <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
               <folding />
             </state>
@@ -24,21 +24,29 @@
       <file leaf-file-name="App.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/App.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="101" column="23" lean-forward="true" selection-start-line="101" selection-start-column="23" selection-end-line="101" selection-end-column="23" />
+            <state relative-caret-position="2121">
+              <caret line="101" column="23" lean-forward="false" selection-start-line="101" selection-start-column="23" selection-end-line="101" selection-end-column="23" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="event-bus.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="event-bus.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/event-bus.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="116">
-              <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
+            <state relative-caret-position="84">
+              <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/dist/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="399">
+              <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -101,6 +109,7 @@
         <option value="$PROJECT_DIR$/src/components/Map.vue" />
         <option value="$PROJECT_DIR$/src/App.vue" />
         <option value="$PROJECT_DIR$/src/event-bus.js" />
+        <option value="$PROJECT_DIR$/dist/index.html" />
       </list>
     </option>
   </component>
@@ -139,14 +148,20 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="app" type="b2602c69:ProjectViewProjectNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="dist" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="app" type="b2602c69:ProjectViewProjectNode" />
@@ -180,14 +195,13 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="D:/ADS minor/Gathering and Cleaning Data/Assignments/MapReduce" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="C:\Users\sjoer\Documents\Git\ads-fietsenstallingen\app\node_modules\eslint" />
@@ -269,6 +283,15 @@
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
     </configuration>
+    <configuration name="build" type="js.build_tools.npm" factoryName="npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="build" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+    </configuration>
     <configuration name="dev" type="js.build_tools.npm" factoryName="npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -278,9 +301,14 @@
       <node-interpreter value="project" />
       <envs />
     </configuration>
+    <list size="2">
+      <item index="0" class="java.lang.String" itemvalue="npm.dev" />
+      <item index="1" class="java.lang.String" itemvalue="npm.build" />
+    </list>
     <recent_temporary>
-      <list size="1">
-        <item index="0" class="java.lang.String" itemvalue="npm.dev" />
+      <list size="2">
+        <item index="0" class="java.lang.String" itemvalue="npm.build" />
+        <item index="1" class="java.lang.String" itemvalue="npm.dev" />
       </list>
     </recent_temporary>
   </component>
@@ -309,11 +337,14 @@
       <workItem from="1506603070903" duration="13000" />
       <workItem from="1506603236546" duration="57000" />
       <workItem from="1506603467851" duration="2155000" />
+      <workItem from="1506930580410" duration="3067000" />
+      <workItem from="1507055193698" duration="12000" />
+      <workItem from="1507110368335" duration="43000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24357000" />
+    <option name="totallyTimeSpent" value="27479000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
@@ -326,20 +357,20 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28701594" sideWeight="0.5021482" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32915717" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26745436" sideWeight="0.42444822" order="6" side_tool="true" content_ui="tabs" />
+      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2706767" sideWeight="0.4384966" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32915717" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28701594" sideWeight="0.49785176" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26745436" sideWeight="0.5755518" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2706767" sideWeight="0.5615034" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -420,7 +451,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="777">
           <caret line="37" column="24" lean-forward="false" selection-start-line="37" selection-start-column="24" selection-end-line="37" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -514,7 +544,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="777">
           <caret line="37" column="24" lean-forward="false" selection-start-line="37" selection-start-column="24" selection-end-line="37" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -522,15 +551,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="8" column="23" lean-forward="false" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#22#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Map.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="878">
+        <state relative-caret-position="735">
           <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
           <folding />
         </state>
@@ -538,19 +564,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/App.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="101" column="23" lean-forward="true" selection-start-line="101" selection-start-column="23" selection-end-line="101" selection-end-column="23" />
+        <state relative-caret-position="2121">
+          <caret line="101" column="23" lean-forward="false" selection-start-line="101" selection-start-column="23" selection-end-line="101" selection-end-column="23" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/event-bus.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
+        <state relative-caret-position="84">
+          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dist/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

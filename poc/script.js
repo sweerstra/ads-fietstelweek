@@ -1,8 +1,8 @@
-var extent = [-285401.92, 22598.08, 595401.9199999999, 903401.9199999999];
+var extent = [-20037508.34, -20037508.34, 20037508.34, 20037508.34];
 var resolutions = [3440.640, 1720.320, 860.160, 430.080, 215.040, 107.520, 53.760, 26.880, 13.440, 6.720, 3.360, 1.680, 0.840, 0.420];
-var projection = new ol.proj.Projection({ code: 'EPSG:28992', units: 'm', extent: extent });
+var projection = new ol.proj.Projection({ code: 'EPSG:900913', units: 'm', extent: extent });
 
-var url = 'http://geodata.nationaalgeoregister.nl/tms/1.0.0/brtachtergrondkaart/';
+var url = 'http://app.cycleprint.eu/map1/';
 
 var tileUrlFunction = function (tileCoord, pixelRatio, projection) {
     var zxy = tileCoord;
@@ -90,7 +90,10 @@ var styleFunction = function (feature) {
 };
 
 var vectorSource = new ol.source.Vector({
-    features: (new ol.format.GeoJSON()).readFeatures(DATA)
+    // features: (new ol.format.GeoJSON()).readFeatures(DATA) 
+    features: new ol.format.GeoJSON().readFeatures(DATA, {
+        featureProjection: 'EPSG:3857'
+    })
 });
 
 vectorSource.addFeature(new ol.Feature(new ol.geom.Circle([5e6, 7e6], 1e6)));
@@ -112,7 +115,7 @@ var map = new ol.Map({
                 ],
                 projection: projection,
                 tileGrid: new ol.tilegrid.TileGrid({
-                    origin: [-285401.92, 22598.08],
+                    origin: [-285401.92, .08],
                     resolutions: resolutions
                 }),
                 tileUrlFunction: tileUrlFunction

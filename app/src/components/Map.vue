@@ -1,18 +1,17 @@
 <template>
-  <ol-map :center="center" :zoom="zoom">
-    <ol-marker v-for="(marker, index) in markers" :coords="marker" :key="index"></ol-marker>
-  </ol-map>
+  <div id="map">
+  </div>
 </template>
 
 <script>
+import routes from '../assets/data/sampleData';
   /* eslint-disable no-underscore-dangle,no-console */
   // import { EventBus } from '../event-bus';
 
   export default {
     data: () => ({
-      markers: [],
-      center: [5.0808, 51.5590],
-      zoom: 13,
+      mapboxAccessToken: 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw',
+      map: ''
     }),
 
     created() {
@@ -21,7 +20,27 @@
       // EventBus.$on('search', (input) => {
       //   this.getBicycleStorage(input);
       // });
+      this.$nextTick(() => {    
+        this.drawMap(this.slider);
+      });
     },
+    methods: {
+      drawMap() {
+        this.map = L.map('map').setView([37.8, -96], 4);
+
+        L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=' + this.mapboxAccessToken, {
+          id: 'mapbox.light'
+        }).addTo(this.map);
+
+        var statesFile = '/static/sampleData.json'
+          fetch(statesFile).then(resp => resp.json()).then((json) => {
+
+            L.geoJson(json).addTo(this.map);
+          })
+
+        this.map.attributionControl.addAttribution('Spatial wildfire occurrence data for the United States, 1992-2014 &copy; <a href="https://doi.org/10.2737/RDS-2013-0009.4">Forest Service Research Data Archive</a>');
+      }
+    }
   };
 </script>
 

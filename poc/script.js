@@ -1,49 +1,42 @@
-const extent = [-285401.92, 22598.08, 595401.9199999999, 903401.9199999999];
-const resolutions = [3440.640, 1720.320, 860.160, 430.080, 215.040, 107.520, 53.760, 26.880, 13.440, 6.720, 3.360, 1.680, 0.840, 0.420];
+var map = L.map('map').setView([37.8, -96], 4);
 
-const projection = new ol.proj.Projection({ code: 'EPSG:28992', units: 'm', extent });
+var factorx = 0.125
+var factory = 0.125
 
-// http://app.cycleprint.eu/
-const url = 'http://geodata.nationaalgeoregister.nl/tms/1.0.0/brtachtergrondkaart/'; 
-const tileUrlFunction = ([z, y, x]) => y < 0 || x < 0 ? '' : `${url}${z}/${y}/${x}.png`;
+L.CRS.pr = L.extend({}, L.CRS.Simple, {
+  projection: L.Projection.LonLat,
+  transformation: new L.Transformation(factorx, 0, -factory, 0),
+  // Changing the transformation is the key part, everything else is the same.
+  // By specifying a factor, you specify what distance in meters one pixel occupies (as it still is CRS.Simple in all other regards).
+  // In this case, I have a tile layer with 256px pieces, so Leaflet thinks it's only 256 meters wide.
+  // I know the map is supposed to be 2048x2048 meters, so I specify a factor of 0.125 to multiply in both directions.
+  // In the actual project, I compute all that from the gdal2tiles tilemapresources.xml, 
+  // which gives the necessary information about tilesizes, total bounds and units-per-pixel at different levels.
 
-// Style 
-const styles = {
-    MultiLineString: new ol.style.Style({
-        stroke: new ol.style.Stroke({ color: '#F44336', width: 2 })
-    }),
-};
 
-const styleFunction = feature => styles[feature.getGeometry().getType()];
+// Scale, zoom and distance are entirely unchanged from CRS.Simple
+  scale: function(zoom) {
+    return Math.pow(2, zoom);
+  },
 
-// Layers
-const baseLayer = new ol.layer.Tile({
-    source: new ol.source.TileImage({
-        projection,
-        tileGrid: new ol.tilegrid.TileGrid({
-            origin: [-285401.92, 22598.08], // sets CRS
-            resolutions
-        }),
-        tileUrlFunction
-    })
+  zoom: function(scale) {
+    return Math.log(scale) / Math.LN2;
+  },
+
+  distance: function(latlng1, latlng2) {
+    var dx = latlng2.lng - latlng1.lng,
+      dy = latlng2.lat - latlng1.lat;
+
+    return Math.sqrt(dx * dx + dy * dy);
+  },
+  infinite: true
 });
 
-const streetLayer = new ol.layer.Vector({
-    source: new ol.source.Vector({
-        features: (new ol.format.GeoJSON()).readFeatures(DATA)
-    }),
-    style: styleFunction
-});
-
-// Map
-const map = new ol.Map({
-    target: 'map',
-    layers: [baseLayer, streetLayer],
-    view: new ol.View({
-        minZoom: 0,
-        maxZoom: 13,
-        projection,
-        center: [150000, 400000],
-        zoom: 5
-    })
-});
+L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+	maxZoom: 18,
+	crs: L.CRS.pr,
+	attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+		'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+		'Imagery © <a href="http://mapbox.com">Mapbox</a>',
+	id: 'mapbox.light'
+}).addTo(map);

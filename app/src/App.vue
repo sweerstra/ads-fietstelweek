@@ -58,11 +58,11 @@
       drawer: true,
       items: [
         { icon: 'home', title: 'Home', to: '/' },
-        { icon: 'network_check', title: 'Graphs', to: '/graph' },
+        { icon: 'network_check', title: 'Chart', to: '/chart' },
       ],
       clipped: true,
       enableResize: true,
-      title: 'Bicycle data',
+      title: 'Fast Cycle Routes',
       fixed: false,
       city: '',
     }),
@@ -81,7 +81,7 @@
   }
 
   #e3, #e3 .container {
-    min-height: 700px;
+    min-height: 600px;
     overflow: hidden;
     z-index: 0;
   }

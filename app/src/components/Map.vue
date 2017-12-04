@@ -30,7 +30,6 @@
         }).addTo(this.map);
 
         L.geoJson(data).addTo(this.map);
-
         this.map.attributionControl.addAttribution('Snelfietsroutes in Noord-Brabant');
       },
     },

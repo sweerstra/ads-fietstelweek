@@ -17,10 +17,9 @@
     created() {
       this.$nextTick(() => {
         this.drawMap();
-
-        EventBus.$on('resize', () => {
-          console.log('resize');
-          this.map.invalidateSize();
+        
+        EventBus.$on('resize', () => {  
+          this.drawMap();
         });
       });
     },

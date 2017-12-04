@@ -17,10 +17,11 @@
     created() {
       this.$nextTick(() => {
         this.drawMap();
-      });
 
-      EventBus.$on('resize', () => {
-        this.map.invalidateSize();
+        EventBus.$on('resize', () => {
+          console.log('resize')
+          this.map.invalidateSize();
+        });
       });
     },
     methods: {

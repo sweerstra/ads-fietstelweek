@@ -44,15 +44,15 @@
 <style scoped>
   #map { z-index: 1; }
 
-  @media (min-height: 600px) {
+  @media (max-height: 700px) {
+    #map { height: 500px; }
+  }
+
+  @media (max-height: 800px) {
     #map { height: 570px; }
   }
 
-  @media (min-height: 700px) {
+  @media (max-height: 850px) {
     #map { height: 630px; }
-  }
-
-  @media (min-height: 800px) {
-    #map { height: 700px; }
   }
 </style>

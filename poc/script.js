@@ -1,13 +1,10 @@
-const extent = [-285401.92, 22598.08, 595401.9199999999, 903401.9199999999];
-var map = L.map('map').setView([37.8, -96], 4);
+const tilburg = [51.5590, 5.0808];
+const map = L.map('map').setView(tilburg, 10);
 
-L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
-	maxZoom: 18,
-	crs: L.CRS.Simple,
-	attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
-		'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-		'Imagery © <a href="http://mapbox.com">Mapbox</a>',
-	id: 'mapbox.light'
+const streetLayer = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+    maxZoom: 18,
+    crs: L.CRS.Simple,
+    id: 'mapbox.light'
 }).addTo(map);
 
-geojson = L.geoJson(DATA).addTo(map);
+const geojson = L.geoJson(DATA).addTo(map);

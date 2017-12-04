@@ -20,7 +20,7 @@
       //   this.getBicycleStorage(input);
       // });
       this.$nextTick(() => {    
-        this.drawMap(this.slider);
+        this.drawMap();
       });
     },
     methods: {

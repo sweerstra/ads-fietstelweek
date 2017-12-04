@@ -37,48 +37,17 @@
 </script>
 
 <style scoped>
-  html, body {
-    font-family: 'Roboto', sans-serif;
-    margin: 0;
-    padding: 0;
+  #map { z-index: 1; }
+
+  @media (min-height: 600px) {
+    #map { height: 570px; }
   }
 
-  header {
-    margin: 20px;
+  @media (min-height: 700px) {
+    #map { height: 630px; }
   }
 
-  #map {
-    height: 570px;
-    z-index: 1;
-  }
-
-  label#not-found {
-    color: red;
-    vertical-align: middle;
-    margin-left: 10px;
-  }
-
-  aside {
-    width: 300px;
-    padding: 0 20px;
-  }
-
-  aside #properties {
-    overflow-y: auto;
-  }
-
-  .heading {
-    font-weight: bold;
-    font-size: 20px;
-  }
-
-  .property {
-    font-weight: bold;
-  }
-
-  @media (max-width: 996px) {
-    #map {
-      width: 100%;
-    }
+  @media (min-height: 800px) {
+    #map { height: 700px; }
   }
 </style>

@@ -63,7 +63,7 @@
       clipped: true,
       enableResize: true,
       title: 'Fast Cycle Routes',
-      fixed: false,
+      fixed: true,
       city: '',
     }),
 
@@ -76,6 +76,13 @@
 </script>
 
 <style>
+  html, body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow: auto;
+  }
+
   #app {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
   }

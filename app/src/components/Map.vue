@@ -48,7 +48,7 @@
   }
 
   #map {
-    height: 90vh;
+    height: 570px;
     z-index: 1;
   }
 

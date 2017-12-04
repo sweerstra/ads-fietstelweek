@@ -19,7 +19,7 @@
         this.drawMap();
 
         EventBus.$on('resize', () => {
-          console.log('resize')
+          console.log('resize');
           this.map.invalidateSize();
         });
       });
@@ -44,15 +44,15 @@
 <style scoped>
   #map { z-index: 1; }
 
-  @media (max-height: 700px) {
-    #map { height: 500px; }
+  @media (max-height: 850px) {
+    #map { height: 630px; }
   }
 
-  @media (max-height: 800px) {
+  @media (max-height: 820px) {
     #map { height: 570px; }
   }
 
-  @media (max-height: 850px) {
-    #map { height: 630px; }
+  @media (max-height: 790px) {
+    #map { height: 510px; }
   }
 </style>

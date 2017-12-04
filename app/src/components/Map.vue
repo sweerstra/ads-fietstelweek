@@ -4,8 +4,7 @@
 </template>
 
 <script>
-import routes from '../assets/data/sampleData';
-  /* eslint-disable no-underscore-dangle,no-console */
+  /* eslint-disable */
   // import { EventBus } from '../event-bus';
 
   export default {

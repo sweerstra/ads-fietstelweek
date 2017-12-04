@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Vuetify from 'vuetify';
+
 import 'vuetify/dist/vuetify.min.css';
 import 'leaflet/dist/leaflet';
 import 'leaflet/dist/leaflet.css';

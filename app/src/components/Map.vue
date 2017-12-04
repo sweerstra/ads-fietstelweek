@@ -4,8 +4,9 @@
 </template>
 
 <script>
-  /* eslint-disable no-undef */
+  /* eslint-disable */
   import data from '../../static/tilburg-oisterwijk.json';
+  import { EventBus } from '../event-bus';
 
   export default {
     data: () => ({
@@ -13,10 +14,13 @@
       map: null,
       streetLayer: null,
     }),
-
     created() {
       this.$nextTick(() => {
         this.drawMap();
+      });
+
+      EventBus.$on('resize', () => {
+        this.map.invalidateSize();
       });
     },
     methods: {

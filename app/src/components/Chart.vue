@@ -1,5 +1,5 @@
 <template>
     <div>
-        jfadkljkadf;fjak;fas;fajklfsaj;fsajkafksfjklsa
+        Chart
     </div>
 </template>

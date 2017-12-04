@@ -24,7 +24,9 @@
     </v-navigation-drawer>
     <v-toolbar
       fixed class="red">
-      <v-toolbar-side-icon class="white--text" @click.native.stop="drawer = !drawer"></v-toolbar-side-icon>
+      <v-toolbar-side-icon class="white--text" 
+      @click="resize" 
+      @click.native.stop="drawer = !drawer"></v-toolbar-side-icon>
       <v-toolbar-title class="white--text" v-text="title"></v-toolbar-title>
       <v-spacer></v-spacer>
       <v-text-field
@@ -44,8 +46,8 @@
     </main>
     <v-footer
       :fixed="fixed">
-      <v-spacer></v-spacer>
       <span>&copy; 2017 - Bicycle data</span>
+      <v-spacer></v-spacer>
     </v-footer>
   </v-app>
 </template>
@@ -70,6 +72,9 @@
     methods: {
       searchMap() {
         EventBus.$emit('search', this.city);
+      },
+      resize() {
+        EventBus.$emit('resize');
       },
     },
   };

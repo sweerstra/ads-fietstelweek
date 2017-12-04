@@ -7,4 +7,5 @@ const streetLayer = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y
     id: 'mapbox.light'
 }).addTo(map);
 
+console.log(DATA);
 const geojson = L.geoJson(DATA).addTo(map);

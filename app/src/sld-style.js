@@ -3,12 +3,8 @@ const map = JSON.parse(str);
 const last = map[map.length - 1];
 
 const getStrokeWidth = (snelheidR) => {
-  if (snelheidR < 0.25) {
-    return 1;
-  }
-  if (snelheidR < 0.50) {
-    return 2;
-  }
+  if (snelheidR < 0.25) return 1;
+  if (snelheidR < 0.50) return 2;
   return 3;
 };
 
@@ -29,4 +25,3 @@ export const getStyle = (intensiteit, snelheidR) => {
     weight: getStrokeWidth(snelheidR),
   };
 };
-

@@ -12,7 +12,11 @@ const getStrokeWidth = (snelheidR) => {
   return 3;
 };
 
-export default (intensiteit, snelheidR) => {
+export const getColors = () => map.map(x => x.line.stroke);
+
+export const styleMap = map;
+
+export const getStyle = (intensiteit, snelheidR) => {
   let style = map.find((x) => {
     const intens = parseInt(intensiteit, 10);
     return intens > x.from && intens <= x.to;

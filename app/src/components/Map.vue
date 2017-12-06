@@ -6,7 +6,7 @@
 <script>
   /* eslint-disable */
   import data from '../../static/tilburg-oisterwijk.json';
-  import styleMap from '../sld-style';
+  import { getColors, styleMap, getStyle } from '../sld-style';
   import { EventBus } from '../event-bus';
 
   export default {
@@ -14,6 +14,7 @@
       mapboxAccessToken: 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw',
       map: null,
       streetLayer: null,
+      legend: null,
     }),
     created() {
       this.$nextTick(() => {
@@ -39,11 +40,30 @@
 
         const style = (feature) => {
           const { properties: { INTENSITEI, SNELHEID_R } } = feature;
-          return styleMap(INTENSITEI, SNELHEID_R);
+          return getStyle(INTENSITEI, SNELHEID_R);
         };
 
         L.geoJson(data, { style }).addTo(this.map);
         this.map.attributionControl.addAttribution('Snelfietsroutes in Noord-Brabant');
+        this.setLegend(this.map);
+      },
+      setLegend(map) {
+        this.legend = L.control({position: 'bottomright'});
+        this.legend.onAdd = (map) => {
+
+          var div = L.DomUtil.create('div', 'info-leg legend'),
+            values = styleMap,
+            colors = getColors();
+
+          div.innerHTML = '<p style="font-size: 16px; font-weight: bold;">Intensiteit</p>'
+          div.innerHTML += values.map((x, i) => { 
+            const { from, to } = x;
+            return '<i style="background:' + colors[i] + '"></i> ' + from + (to ? ' &ndash; ' + to : '+');
+          }).join('<br>');
+
+          return div;
+        };
+        this.legend.addTo(map);
       },
     },
   };

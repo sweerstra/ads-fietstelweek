@@ -5,6 +5,8 @@ import 'vuetify/dist/vuetify.min.css';
 import 'leaflet/dist/leaflet';
 import 'leaflet/dist/leaflet.css';
 
+import './assets/style.css';
+
 import App from './App';
 import router from './router';
 

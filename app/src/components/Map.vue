@@ -6,6 +6,7 @@
 <script>
   /* eslint-disable */
   import data from '../../static/tilburg-oisterwijk.json';
+  import styleMap from '../sld-style';
   import { EventBus } from '../event-bus';
 
   export default {
@@ -33,7 +34,12 @@
           id: 'mapbox.light',
         }).addTo(this.map);
 
-        L.geoJson(data).addTo(this.map);
+        const style = (feature) => {
+          const { properties: { INTENSITEI, SNELHEID_R } } = feature;
+          return styleMap(INTENSITEI, SNELHEID_R);
+        };
+
+        L.geoJson(data, { style }).addTo(this.map);
         this.map.attributionControl.addAttribution('Snelfietsroutes in Noord-Brabant');
       },
     },

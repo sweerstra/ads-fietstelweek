@@ -22,6 +22,9 @@
         EventBus.$on('resize', () => {  
           this.drawMap();
         });
+
+        // EventBus.$on('search', (input) => {
+        // });
       });
     },
     methods: {

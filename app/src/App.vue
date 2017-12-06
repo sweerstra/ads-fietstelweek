@@ -46,7 +46,7 @@
     </main>
     <v-footer
       :fixed="fixed">
-      <span>&copy; 2017 - Bicycle data</span>
+      <span>&copy; 2017 - Fast Cycle Routes</span>
       <v-spacer></v-spacer>
     </v-footer>
   </v-app>

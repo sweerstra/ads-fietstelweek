@@ -1,19 +1,18 @@
 <template>
   <div>
-    <v-card dark id="card" height="50px">
-      <v-bottom-nav
-        absolute
-        :value="true"
-        color="transparent">
-        <v-btn flat color="teal" value="place">
+    <v-card
+      id="card"
+      height="56px">
+      <v-bottom-nav absolute :value="true" :active.sync="e1" class="transparent">
+        <v-btn flat class="red--text" value="2015">
           <span>2015</span>
           <v-icon>place</v-icon>
         </v-btn>
-        <v-btn flat color="teal" value="place">
+        <v-btn flat class="red--text" value="2016">
           <span>2016</span>
           <v-icon>place</v-icon>
         </v-btn>
-        <v-btn flat color="teal" value="place">
+        <v-btn flat class="red--text" value="2017">
           <span>2017</span>
           <v-icon>place</v-icon>
         </v-btn>
@@ -27,7 +26,6 @@
 <script>
   /* eslint-disable */
   import data from '../../static/tilburg-oisterwijk.json';
-  // import data from '../../static/oss-denbosch-2015.json';
   import { getColors, styleMap, getStyle } from '../sld-style';
   import { EventBus } from '../event-bus';
 
@@ -37,6 +35,7 @@
       map: null,
       streetLayer: null,
       legend: null,
+      e1: 2,
     }),
     created() {
       this.$nextTick(() => {
@@ -98,19 +97,19 @@
 
 <style scoped>
   #map {
-    height: 570px;
+    height: 520px;
     z-index: 1;
   }
 
   @media (min-height: 750px) {
-    #map { height: 630px; }
+    #map { height: 580px; }
   }
 
-  .card {
+  /* .card {
     z-index: 0;
-  }
+  } */
 
-  .bottom-nav {
+  /* .bottom-nav {
     background: #f44336 !important;
-  }
+  } */
 </style>

@@ -24,23 +24,22 @@
     </v-navigation-drawer>
     <v-toolbar
       fixed class="red">
-      <v-toolbar-side-icon class="white--text" 
-      @click="resize" 
-      @click.native.stop="drawer = !drawer"></v-toolbar-side-icon>
+      <v-toolbar-side-icon class="white--text"
+                           @click="resize"
+                           @click.native.stop="drawer = !drawer"></v-toolbar-side-icon>
       <v-toolbar-title class="white--text" v-text="title"></v-toolbar-title>
       <v-spacer></v-spacer>
-       <v-select
-          v-bind:items="routes"
-          v-model="route"
-          item-text="value"
-          item-value="key"
-          id="route"
-          placeholder="Zoek een snelfietsroute"
-          dark
-          autocomplete="on"
-          return-object
-          @keyup.enter="searchMap"
-            ></v-select>
+      <v-select
+        v-bind:items="routes"
+        v-model="route"
+        item-text="value"
+        item-value="key"
+        id="route"
+        placeholder="Kies een snelfietsroute"
+        dark
+        return-object
+        @keyup.enter="searchMap"
+      ></v-select>
     </v-toolbar>
     <main>
       <v-container fluid>
@@ -74,14 +73,17 @@
         {
           key: 'Oss',
           value: 'Oss - Den Bosch',
+          location: [51.761180, 5.514048],
         },
         {
           key: 'Eindhoven',
           value: 'Eindhoven - Valkenswaard',
+          location: [51.441642, 5.469722],
         },
         {
           key: 'Tilburg',
           value: 'Tilburg - Oisterwijk',
+          location: [51.565424, 5.203028],
         },
       ],
     }),

@@ -1,11 +1,9 @@
 <template>
   <div>
     <v-card dark id="card" height="50px">
-      <v-bottom-nav 
-
-        absolute 
-        :value="true" 
-        :active.sync="e1" 
+      <v-bottom-nav
+        absolute
+        :value="true"
         color="transparent">
         <v-btn flat color="teal" value="place">
           <span>2015</span>
@@ -29,6 +27,7 @@
 <script>
   /* eslint-disable */
   import data from '../../static/tilburg-oisterwijk.json';
+  // import data from '../../static/oss-denbosch-2015.json';
   import { getColors, styleMap, getStyle } from '../sld-style';
   import { EventBus } from '../event-bus';
 
@@ -47,8 +46,9 @@
           this.drawMap();
         });
 
-        // EventBus.$on('search', (input) => {
-        // });
+        EventBus.$on('search', (input) => {
+          this.map.setView(input.location, 12);
+        });
       });
     },
     methods: {

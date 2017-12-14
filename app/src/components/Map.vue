@@ -48,6 +48,7 @@
         EventBus.$on('search', (input) => {
           this.map.setView(input.location, 12);
         });
+
       });
     },
     methods: {

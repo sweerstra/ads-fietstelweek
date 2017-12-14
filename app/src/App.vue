@@ -29,15 +29,18 @@
       @click.native.stop="drawer = !drawer"></v-toolbar-side-icon>
       <v-toolbar-title class="white--text" v-text="title"></v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-text-field
-        v-model="city"
-        id="city"
-        placeholder="Zoek een plaats"
-        append-icon="search"
-        dark
-        autocomplete="off"
-        @keyup.enter="searchMap"
-      ></v-text-field>
+       <v-select
+          v-bind:items="routes"
+          v-model="route"
+          item-text="value"
+          item-value="key"
+          id="route"
+          placeholder="Zoek een snelfietsroute"
+          dark
+          autocomplete="on"
+          return-object
+          @keyup.enter="searchMap"
+            ></v-select>
     </v-toolbar>
     <main>
       <v-container fluid>
@@ -66,13 +69,28 @@
       enableResize: true,
       title: 'Fast Cycle Routes',
       fixed: true,
-      city: '',
+      route: '',
+      routes: [
+        {
+          key: 'Oss',
+          value: 'Oss - Den Bosch',
+        },
+        {
+          key: 'Eindhoven',
+          value: 'Eindhoven - Valkenswaard',
+        },
+        {
+          key: 'Tilburg',
+          value: 'Tilburg - Oisterwijk',
+        },
+      ],
     }),
-
-    methods: {
-      searchMap() {
-        EventBus.$emit('search', this.city);
+    watch: {
+      route: (newValue) => {
+        EventBus.$emit('search', newValue);
       },
+    },
+    methods: {
       resize() {
         EventBus.$emit('resize');
       },
@@ -110,8 +128,12 @@
     color: rgba(255, 255, 255, 0.8);
   }
 
-  #city {
+  #route {
     caret-color: white;
+  }
+
+  .list__tile--active {
+    color: red !important;
   }
 
   .input-group__append-icon {

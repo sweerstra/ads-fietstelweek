@@ -1,5 +1,28 @@
 <template>
-  <div id="map">
+  <div>
+    <v-card dark id="card" height="50px">
+      <v-bottom-nav 
+
+        absolute 
+        :value="true" 
+        :active.sync="e1" 
+        color="transparent">
+        <v-btn flat color="teal" value="place">
+          <span>2015</span>
+          <v-icon>place</v-icon>
+        </v-btn>
+        <v-btn flat color="teal" value="place">
+          <span>2016</span>
+          <v-icon>place</v-icon>
+        </v-btn>
+        <v-btn flat color="teal" value="place">
+          <span>2017</span>
+          <v-icon>place</v-icon>
+        </v-btn>
+      </v-bottom-nav>
+    </v-card>
+    <div id="map">
+    </div>
   </div>
 </template>
 
@@ -81,5 +104,13 @@
 
   @media (min-height: 750px) {
     #map { height: 630px; }
+  }
+
+  .card {
+    z-index: 0;
+  }
+
+  .bottom-nav {
+    background: #f44336 !important;
   }
 </style>

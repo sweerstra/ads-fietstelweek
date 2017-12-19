@@ -103,12 +103,7 @@ export default {
             ]
           },
           legend: {
-            display: true,
-            labels: {
-              fontColor: 'rgba(75, 192, 192, 1)',
-              fillStyle: 'rgba(75, 192, 192, 1)',
-              strokeStyle: 'rgba(75, 192, 192, 0.2)',
-            }
+            display: false,
           }
         }
       });

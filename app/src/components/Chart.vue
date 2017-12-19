@@ -1,7 +1,7 @@
 <template>
   <v-container fluid row grid-list-md>
     <v-layout row wrap>
-      <v-flex xs12 sm6>
+      <v-flex xs12 sm12>
         <v-card>
           <v-card-media src="/static/motive-header.jpg" height="200px">
           </v-card-media>
@@ -26,7 +26,7 @@
         </v-container>
         </v-card>
       </v-flex>
-      <v-flex xs12 sm6>
+      <v-flex xs12 sm12>
         <v-card>
           <v-container fill-height fluid>
             <v-layout row fill-height>
@@ -38,6 +38,7 @@
         </v-card>
       </v-flex>
     </v-layout>
+    <br/>
   </v-container>
 </template>
 
@@ -56,26 +57,36 @@ export default {
       this.myChart = new Chart(this.ctx, {
         type: "bar",
         data: {
-          labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+          labels: ["Kruispunten", "Tegels", "Kinderkoppen", "Asfalt", "Bomen", "Bebossing", "Verlichting", "Fiets strook", "Fietspad", "Rottonde", "Verkeerslichten"],
           datasets: [
             {
-              label: "# of Votes",
-              data: [12, 19, 3, 5, 2, 3],
+              label: "Average evaluation score",
+              data: [2.05, 2.85, 2.4, 3.9, 3.15, 2.8, 3.75, 3.25, 4.05, 3.35, 2.9],
               backgroundColor: [
-                "rgba(255, 99, 132, 0.2)",
-                "rgba(54, 162, 235, 0.2)",
-                "rgba(255, 206, 86, 0.2)",
-                "rgba(75, 192, 192, 0.2)",
-                "rgba(153, 102, 255, 0.2)",
-                "rgba(255, 159, 64, 0.2)"
+                ,
+                ,
+                ,
+                'rgba(75, 192, 192, 0.2)',
+                ,
+                ,
+                'rgba(75, 192, 192, 0.2)',
+                ,
+                'rgba(75, 192, 192, 0.2)',
+                ,
+                ,
+
               ],
               borderColor: [
-                "rgba(255,99,132,1)",
-                "rgba(54, 162, 235, 1)",
-                "rgba(255, 206, 86, 1)",
-                "rgba(75, 192, 192, 1)",
-                "rgba(153, 102, 255, 1)",
-                "rgba(255, 159, 64, 1)"
+                ,
+                ,
+                ,                
+                'rgba(75, 192, 192, 1)',
+                ,
+                ,
+                'rgba(75, 192, 192, 1)',
+                ,
+                'rgba(75, 192, 192, 1)',
+                ,
               ],
               borderWidth: 1
             }
@@ -90,6 +101,14 @@ export default {
                 }
               }
             ]
+          },
+          legend: {
+            display: true,
+            labels: {
+              fontColor: 'rgba(75, 192, 192, 1)',
+              fillStyle: 'rgba(75, 192, 192, 1)',
+              strokeStyle: 'rgba(75, 192, 192, 0.2)',
+            }
           }
         }
       });
@@ -101,7 +120,7 @@ export default {
 
 <style>
 #MotiveChart {
-  width: 400px !important;
+  width: 875px !important;
   height: 400px !important;
 }
 </style>

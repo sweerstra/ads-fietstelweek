@@ -108,6 +108,10 @@
     overflow: auto;
   }
 
+  body {
+    background-color: #fafafa;
+  }
+
   #app {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
   }

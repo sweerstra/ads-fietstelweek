@@ -3,7 +3,7 @@
     <v-card
       id="card"
       height="56px">
-      <v-bottom-nav absolute :value="true" :active.sync="e1" class="transparent">
+      <v-bottom-nav absolute :value="true" :active.sync="selectedYear" class="transparent">
         <v-btn flat class="red--text" value="2015">
           <span>2015</span>
           <v-icon>place</v-icon>
@@ -25,7 +25,7 @@
 
 <script>
   /* eslint-disable */
-  import data from '../../static/tilburg-oisterwijk.json';
+  import data from '../../static/tilburg-oisterwijk-2016.json';
   import { getColors, styleMap, getStyle } from '../sld-style';
   import { EventBus } from '../event-bus';
 
@@ -34,8 +34,9 @@
       mapboxAccessToken: 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw',
       map: null,
       streetLayer: null,
+      geoLayer: null,
       legend: null,
-      e1: 2,
+      selectedYear: '2016',
     }),
     created() {
       this.$nextTick(() => {
@@ -48,8 +49,18 @@
         EventBus.$on('search', (input) => {
           this.map.setView(input.location, 12);
         });
-
       });
+    },
+    watch: {
+      selectedYear(year) {
+        const filename = '../../static/tilburg-oisterwijk';
+        fetch(`${filename}-${year}.json`)
+          .then(resp => resp.json())
+          .then((json) => {
+            this.map.removeLayer(this.geoLayer);
+            this.geoLayer = L.geoJson(json, { style: this.getStyle }).addTo(this.map);
+          });
+      },
     },
     methods: {
       drawMap() {
@@ -61,27 +72,30 @@
           id: 'mapbox.light',
         }).addTo(this.map);
 
-        const style = (feature) => {
-          const { properties: { INTENSITEI, SNELHEID_R } } = feature;
-          return getStyle(INTENSITEI, SNELHEID_R);
-        };
+        this.geoLayer = L.geoJson(data, { style: this.getStyle }).addTo(this.map);
 
-        L.geoJson(data, { style }).addTo(this.map);
         this.map.attributionControl.addAttribution('Snelfietsroutes in Noord-Brabant');
         this.setLegend();
+      },
+      getStyle(feature) {
+        const { properties: { INTENSITEI, SNELHEID_R } } = feature;
+        return getStyle(INTENSITEI, SNELHEID_R);
       },
       setLegend() {
         this.legend = L.control({ position: 'bottomright' });
         this.legend.onAdd = () => {
-          const colors = getColors();
+          const colors = getColors().reverse();
           const div = document.createElement('div');
           div.id = 'legend';
 
-          div.innerHTML = '<h3 class="heading">Intensiteit</h3>' +
+          const values = ['90% - 100%', '80% - 90%', '70% - 80%', '60% - 70%', '50% - 60%', '40% - 50%', '30% - 40%', '20% - 30%', '10% - 20%', '0% - 10%'];
+
+          div.innerHTML = '<h3 class="heading">Doorrijfactor</h3>' +
+            '<span>Percentage gewenste snelheid tegenover reële snelheid</span>' +
             styleMap.reduce((html, obj, index) => {
               const { from, to } = obj;
               html += `<div class="info">
-                        <span>${from}${to ? ' &ndash; ' + to : '+'}</span>
+                        <span>${values[index]}</span>
                         <i style="background:${colors[index]}"></i>
                       </div>`;
               return html;

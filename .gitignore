@@ -59,3 +59,8 @@ typings/
 
 # IDE
 .idea
+data-cleaning/data/routes2015\.csv
+
+data-cleaning/data/routes2016\.csv
+
+data-cleaning/data/routes2017\.csv

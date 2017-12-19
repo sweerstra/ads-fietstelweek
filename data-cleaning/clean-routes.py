@@ -1,6 +1,5 @@
 import geopandas as gpd
-import pandas as pd
-from collections import defaultdict
+
 
 class Route:
 
@@ -9,7 +8,6 @@ class Route:
         self.links = []
 
         self.links.append(link_id)
-
 
     def __str__(self):
         return "%s - %s" % (self.route_id, self.links)
@@ -20,7 +18,8 @@ def get_link_numbers(file):
 
     return df['LINKNUMMER'].tolist()
 
-f = open("routes2015.csv")
+
+f = open("data/routes2015.csv")
 
 routes = []
 lastRoute = Route(-1, -1)
@@ -42,9 +41,9 @@ routes = routes[2:]
 
 # Get linknummers from GeoJSON files
 # Tilburg
-snelfietsroute2015 = get_link_numbers('routes/oss-denbosch/Oss - Den Bosch 2015.geojson')
-snelfietsroute2016 = get_link_numbers('routes/oss-denbosch/Oss - Den Bosch 2016.geojson')
-snelfietsroute2017 = get_link_numbers('routes/oss-denbosch/Oss - Den Bosch 2017.geojson')
+snelfietsroute2015 = get_link_numbers('data/routes/oss-denbosch/Oss-DenBosch2015.geojson')
+snelfietsroute2016 = get_link_numbers('data/routes/oss-denbosch/Oss-DenBosch2016.geojson')
+snelfietsroute2017 = get_link_numbers('data/routes/oss-denbosch/Oss-DenBosch2017.geojson')
 
 correctRoutes = []
 
@@ -70,4 +69,3 @@ filtered_ldf = ldf[ldf["LINKNUMMER"].isin(d.keys())]
 print(ldf.head(10))
 
 print(type(ldf))
-

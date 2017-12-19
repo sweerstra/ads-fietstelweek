@@ -24,12 +24,11 @@
     </v-navigation-drawer>
     <v-toolbar
       fixed class="red">
-      <v-toolbar-side-icon class="white--text"
-                           @click="resize"
-                           @click.native.stop="drawer = !drawer"></v-toolbar-side-icon>
+      <v-toolbar-side-icon class="white--text" @click.native.stop="drawer = !drawer"></v-toolbar-side-icon>
       <v-toolbar-title class="white--text" v-text="title"></v-toolbar-title>
       <v-spacer></v-spacer>
       <v-select
+        v-if="$route.name === 'Map'"
         v-bind:items="routes"
         v-model="route"
         item-text="value"
@@ -90,11 +89,6 @@
     watch: {
       route: (newValue) => {
         EventBus.$emit('search', newValue);
-      },
-    },
-    methods: {
-      resize() {
-        EventBus.$emit('resize');
       },
     },
   };

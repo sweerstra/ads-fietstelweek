@@ -42,10 +42,6 @@
       this.$nextTick(() => {
         this.drawMap();
 
-        EventBus.$on('resize', () => {
-          this.drawMap();
-        });
-
         EventBus.$on('search', (input) => {
           this.map.setView(input.location, 12);
         });
@@ -90,16 +86,14 @@
 
           const values = ['90% - 100%', '80% - 90%', '70% - 80%', '60% - 70%', '50% - 60%', '40% - 50%', '30% - 40%', '20% - 30%', '10% - 20%', '0% - 10%'];
 
-          div.innerHTML = '<h3 class="heading">Doorrijfactor</h3>' +
-            '<span>Percentage gewenste snelheid tegenover reële snelheid</span>' +
-            styleMap.reduce((html, obj, index) => {
-              const { from, to } = obj;
-              html += `<div class="info">
-                        <span>${values[index]}</span>
+          div.innerHTML = '<h3 class="heading">Doorrijfactor</h3>'
+            + '<span>Percentage gewenste snelheid tegenover reële snelheid.</span>'
+            + '<div class="legend-information">' + values.reduce((html, value, index) => {
+              return html + `<div class="info">
+                        <span>${value}</span>
                         <i style="background:${colors[index]}"></i>
                       </div>`;
-              return html;
-            }, '');
+            }, '') + '</div>';
 
           return div;
         };

@@ -12,14 +12,14 @@
                   <div class="headline">Snelfietsroutes</div>
                   <br>
                   <div>
-                    Sinds een aantal jaar is er een nieuw soort fietspad in opmars: 
-                    de snelfietsroute. Een snelfietsroute laat zich typeren als een 
-                    comfortabele fietsroute die stedelijke regio’s met elkaar verbind. 
-                    Zoals de naam doet vermoeden is de route dusdanig geoptimaliseerd 
-                    om een zo hoog mogelijke doorrij factor te creëren. Door obstakels 
-                    zoals verkeerslichten te verwijderen, worden fietsers aangemoedigd 
-                    om door te fietsen. Kruisingen en bochten worden vermeden. Goede 
-                    verlichting maakt het mogelijk dat de route ook ’s avonds goed 
+                    Sinds een aantal jaar is er een nieuw soort fietspad in opmars:
+                    de snelfietsroute. Een snelfietsroute laat zich typeren als een
+                    comfortabele fietsroute die stedelijke regio’s met elkaar verbind.
+                    Zoals de naam doet vermoeden is de route dusdanig geoptimaliseerd
+                    om een zo hoog mogelijke doorrij factor te creëren. Door obstakels
+                    zoals verkeerslichten te verwijderen, worden fietsers aangemoedigd
+                    om door te fietsen. Kruisingen en bochten worden vermeden. Goede
+                    verlichting maakt het mogelijk dat de route ook ’s avonds goed
                     is te berijden.
                   </div>
                 </div>
@@ -31,13 +31,13 @@
         <v-card>
           <v-container fill-height fluid>
             <v-layout row fill-height>
-              <v-flex xs12 align-end flexbox>                  
+              <v-flex xs12 align-end flexbox>
                 <div class="headline">Fietspaden</div>
                 <br>
                 <div>
-                  Nederland kent een zeer uitgebreid netwerk van fietspaden. De 
-                  laatste cijfers (uit 2012) tonen aan dat er ruim 34.000 kilometer 
-                  aan fietspaden ligt. Waarschijnlijk zijn dit er meer aangezien 
+                  Nederland kent een zeer uitgebreid netwerk van fietspaden. De
+                  laatste cijfers (uit 2012) tonen aan dat er ruim 34.000 kilometer
+                  aan fietspaden ligt. Waarschijnlijk zijn dit er meer aangezien
                   de meest recente cijfers vijf jaar geleden zijn verzameld.
                 </div>
               </v-flex>
@@ -51,26 +51,26 @@
           hide-actions
           class="elevation-1"
         >
-        <template slot="items" scope="props">
-          <td class="text-xs-right">{{ props.item.province }}</td>
-          <td class="text-xs-right">{{ props.item.distance }}</td>
-        </template>
-      </v-data-table>
-      </v-flex>    
+          <template slot="items" scope="props">
+            <td class="text-xs-right">{{ props.item.province }}</td>
+            <td class="text-xs-right">{{ props.item.distance }}</td>
+          </template>
+        </v-data-table>
+      </v-flex>
       <v-flex xs12 sm6>
         <v-card>
           <v-container fill-height fluid>
             <v-layout row fill-height>
-              <v-flex xs12 align-end flexbox>                  
+              <v-flex xs12 align-end flexbox>
                 <div class="headline">Nederland en fietsen</div>
                 <br>
                 <div>
-                  Nederland is bij uitstek een land dat graag fietst. Verschillende 
-                  cijfers bevestigen dit. Volgens de laatste schatting van 
-                  brancheverenigingen BOVAG en RAI waren er in 2016 ongeveer 
-                  22,8 miljoen fietsen. Dat betekent dat iedere Nederlander gemiddeld 
-                  1,3 fiets bezit, de hoogste fietsdichtheid ter wereld. Nederland 
-                  telt dus meer fietsers dan inwoners. 
+                  Nederland is bij uitstek een land dat graag fietst. Verschillende
+                  cijfers bevestigen dit. Volgens de laatste schatting van
+                  brancheverenigingen BOVAG en RAI waren er in 2016 ongeveer
+                  22,8 miljoen fietsen. Dat betekent dat iedere Nederlander gemiddeld
+                  1,3 fiets bezit, de hoogste fietsdichtheid ter wereld. Nederland
+                  telt dus meer fietsers dan inwoners.
                 </div>
               </v-flex>
             </v-layout>
@@ -98,9 +98,9 @@
 </template>
 
 <script>
-/* eslint-disable */
+  /* eslint-disable */
   export default {
-    data: ()  => ({
+    data: () => ({
       headers: [
         {
           text: 'Jaar',

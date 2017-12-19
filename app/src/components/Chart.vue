@@ -23,14 +23,32 @@
                 </div>
               </v-flex>
             </v-layout>
-        </v-container>
+          </v-container>
         </v-card>
       </v-flex>
       <v-flex xs12 sm12>
         <v-card>
+          <v-layout row>
+            <v-flex xs12>
+              <div class="legend">
+                <div class="legend-item">
+                  <div class="legend-item-color green"></div>
+                  <div>Aspecten van snelfietsroutes</div>
+                </div>
+                <div class="legend-item">
+                  <div class="legend-item-color red"></div>
+                  <div>Geminimaliseerd binnen snelfietsroutes</div>
+                </div>
+                <div class="legend-item">
+                  <div class="legend-item-color yellow"></div>
+                  <div>Overig</div>
+                </div>
+              </div>
+            </v-flex>
+          </v-layout>
           <v-container fill-height fluid>
-            <v-layout row fill-height>
-              <v-flex xs12 align-end flexbox>  
+            <v-layout row align-center fill-height>
+              <v-flex class="text-xs-center">
                 <canvas id="MotiveChart"></canvas>
               </v-flex>
             </v-layout>
@@ -43,80 +61,114 @@
 </template>
 
 <script>
-/* eslint-disable */
-import Chart from "chart.js";
+  /* eslint-disable */
+  import Chart from "chart.js";
 
-export default {
-  data: () => ({
-    ctx: null,
-    myChart: null
-  }),
-  created() {
-    this.$nextTick(() => {
-      this.ctx = document.getElementById("MotiveChart").getContext("2d");
-      this.myChart = new Chart(this.ctx, {
-        type: "bar",
-        data: {
-          labels: ["Kruispunten", "Tegels", "Kinderkoppen", "Asfalt", "Bomen", "Bebossing", "Verlichting", "Fiets strook", "Fietspad", "Rottonde", "Verkeerslichten"],
-          datasets: [
-            {
-              label: "Average evaluation score",
-              data: [2.05, 2.85, 2.4, 3.9, 3.15, 2.8, 3.75, 3.25, 4.05, 3.35, 2.9],
-              backgroundColor: [
-                'rgba(255, 99, 99, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 120, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 120, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 120, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(255, 99, 99, 0.2)',
-
-              ],
-              borderColor: [
-                'rgba(255, 99, 99, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(255, 206, 86, 1)',                
-                'rgba(75, 192, 120, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 120, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 120, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(255, 99, 99, 1)'
-              ],
-              borderWidth: 1
-            }
-          ]
-        },
-        options: {
-          scales: {
-            yAxes: [
+  export default {
+    data: () => ({
+      ctx: null,
+      myChart: null
+    }),
+    created() {
+      this.$nextTick(() => {
+        this.ctx = document.getElementById("MotiveChart").getContext("2d");
+        this.myChart = new Chart(this.ctx, {
+          type: "bar",
+          data: {
+            labels: ["Kruispunten", "Tegels", "Kinderkoppen", "Asfalt", "Bomen", "Bebossing", "Verlichting", "Fiets strook", "Fietspad", "Rottonde", "Verkeerslichten"],
+            datasets: [
               {
-                ticks: {
-                  beginAtZero: true
-                }
+                label: "Average evaluation score",
+                data: [2.05, 2.85, 2.4, 3.9, 3.15, 2.8, 3.75, 3.25, 4.05, 3.35, 2.9],
+                backgroundColor: [
+                  'rgba(255, 99, 99, 0.2)',
+                  'rgba(255, 206, 86, 0.2)',
+                  'rgba(255, 206, 86, 0.2)',
+                  'rgba(75, 192, 120, 0.2)',
+                  'rgba(255, 206, 86, 0.2)',
+                  'rgba(255, 206, 86, 0.2)',
+                  'rgba(75, 192, 120, 0.2)',
+                  'rgba(255, 206, 86, 0.2)',
+                  'rgba(75, 192, 120, 0.2)',
+                  'rgba(255, 206, 86, 0.2)',
+                  'rgba(255, 99, 99, 0.2)',
+
+                ],
+                borderColor: [
+                  'rgba(255, 99, 99, 1)',
+                  'rgba(255, 206, 86, 1)',
+                  'rgba(255, 206, 86, 1)',
+                  'rgba(75, 192, 120, 1)',
+                  'rgba(255, 206, 86, 1)',
+                  'rgba(255, 206, 86, 1)',
+                  'rgba(75, 192, 120, 1)',
+                  'rgba(255, 206, 86, 1)',
+                  'rgba(75, 192, 120, 1)',
+                  'rgba(255, 206, 86, 1)',
+                  'rgba(255, 99, 99, 1)'
+                ],
+                borderWidth: 1
               }
             ]
           },
-          legend: {
-            display: false,
+          options: {
+            scales: {
+              yAxes: [
+                {
+                  ticks: {
+                    beginAtZero: true
+                  }
+                }
+              ]
+            },
+            legend: {
+              display: false,
+            }
           }
-        }
+        });
       });
-    });
-  },
-  methods: {}
-};
+    },
+    methods: {}
+  };
 </script>
 
-<style>
-#MotiveChart {
-  width: 875px !important;
-  height: 400px !important;
-}
+<style scoped>
+  #MotiveChart {
+    width: 875px !important;
+    height: 400px !important;
+    margin: 0 auto !important;
+  }
+
+  .legend {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    margin: 4px;
+  }
+
+  .legend-item-color {
+    width: 24px;
+    height: 16px;
+    margin: 4px;
+  }
+
+  .green {
+    background-color: rgba(75, 192, 120, 0.2) !important;
+    border: 1px solid rgba(75, 192, 120, 1)
+  }
+
+  .yellow {
+    background-color: rgba(255, 206, 86, 0.2) !important;
+    border: 1px solid rgba(255, 206, 86, 1);
+  }
+
+  .red {
+    background-color: rgba(255, 99, 99, 0.2) !important;
+    border: 1px solid rgba(255, 99, 99, 1);
+  }
 </style>

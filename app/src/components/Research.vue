@@ -16,7 +16,7 @@
             </v-layout>
           </v-container>
         </v-card>
-      </v-flex>    
+      </v-flex>
       <v-flex xs12 sm6>
         <v-card>
           <v-card-media src="/static/fiets-header.jpg" height="200px">
@@ -39,12 +39,8 @@
 
 <script>
 
-export default {
-  data: () => ({
-
-  }),
-  methods: {
-
-  },
-};
+  export default {
+    data: () => ({}),
+    methods: {},
+  };
 </script>

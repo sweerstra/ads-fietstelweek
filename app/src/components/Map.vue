@@ -113,12 +113,4 @@
   @media (min-height: 750px) {
     #map { height: 580px; }
   }
-
-  /* .card {
-    z-index: 0;
-  } */
-
-  /* .bottom-nav {
-    background: #f44336 !important;
-  } */
 </style>

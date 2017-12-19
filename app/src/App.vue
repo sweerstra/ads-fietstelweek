@@ -95,18 +95,7 @@
   };
 </script>
 
-<style>
-  html, body {
-    font-family: 'Roboto', sans-serif;
-    margin: 0;
-    padding: 0;
-    overflow: auto;
-  }
-
-  body {
-    background-color: #fafafa;
-  }
-
+<style scoped>
   #app {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
   }

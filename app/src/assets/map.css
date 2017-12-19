@@ -48,3 +48,27 @@ html, body {
 body {
   background-color: #fafafa;
 }
+
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+}
+
+#route {
+  caret-color: white;
+}
+
+.input-group__append-icon {
+  color: white !important;
+}
+
+#e3 .input-group__details:after {
+  background-color: rgba(255, 255, 255, 0.32) !important;
+}
+
+.input-group__append-icon {
+  color: rgba(255, 255, 255, 0.32) !important;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: rgba(255, 255, 255, 0.8);
+}

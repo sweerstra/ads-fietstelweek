@@ -96,37 +96,13 @@
 </script>
 
 <style scoped>
-  #app {
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  }
-
   #e3, #e3 .container {
     min-height: 600px;
     overflow: hidden;
     z-index: 0;
   }
 
-  #e3 .input-group__details:after {
-    background-color: rgba(255, 255, 255, 0.32) !important;
-  }
-
-  .input-group__append-icon {
-    color: rgba(255, 255, 255, 0.32) !important;
-  }
-
-  ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-    color: rgba(255, 255, 255, 0.8);
-  }
-
-  #route {
-    caret-color: white;
-  }
-
   .list__tile--active {
     color: red !important;
-  }
-
-  .input-group__append-icon {
-    color: white !important;
   }
 </style>

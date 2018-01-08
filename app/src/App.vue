@@ -68,7 +68,7 @@
       enableResize: true,
       title: 'Fast Cycle Routes',
       fixed: true,
-      route: '',
+      route: 'Tilburg',
       routes: [
         {
           key: 'Oss',

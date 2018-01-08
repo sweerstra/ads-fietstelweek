@@ -3,7 +3,7 @@
     <v-layout row wrap>
       <v-flex xs12 sm6>
         <v-card>
-          <v-card-media src="/static/fiets-header.jpg" height="200px">
+          <v-card-media src="../static/fiets-header.jpg" height="200px">
           </v-card-media>
           <v-container fill-height fluid>
             <v-layout row fill-height>

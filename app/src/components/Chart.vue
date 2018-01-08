@@ -3,7 +3,7 @@
     <v-layout row wrap>
       <v-flex xs12 sm12>
         <v-card>
-          <v-card-media src="/static/motive-header.jpg" height="200px">
+          <v-card-media src="../static/motive-header.jpg" height="200px">
           </v-card-media>
           <v-container fill-height fluid>
             <v-layout row fill-height>

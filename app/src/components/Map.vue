@@ -20,16 +20,20 @@
     </v-card>
     <div id="map">
     </div>
+    <!--<loader :loading="true"></loader>-->
   </div>
 </template>
 
 <script>
   /* eslint-disable */
-  import data from '../../static/tilburg-oisterwijk-2016.json';
+  import getFileName from '../data';
   import { getColors, styleMap, getStyle } from '../sld-style';
   import { EventBus } from '../event-bus';
+  import Loader from './Loader';
 
   export default {
+    /*components: { Loader },*/
+
     data: () => ({
       mapboxAccessToken: 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw',
       map: null,
@@ -37,27 +41,29 @@
       geoLayer: null,
       legend: null,
       selectedYear: '2016',
+      selectedRoute: 'Tilburg',
+      loading: true
     }),
+
     created() {
       this.$nextTick(() => {
         this.drawMap();
 
         EventBus.$on('search', (input) => {
-          this.map.setView(input.location, 12);
+          this.map.setView(input.location, 13);
+          this.selectedRoute = input.key;
+
+          this.setRouteData(this.selectedRoute, this.selectedYear);
         });
       });
     },
+
     watch: {
       selectedYear(year) {
-        const filename = '../../static/tilburg-oisterwijk';
-        fetch(`${filename}-${year}.json`)
-          .then(resp => resp.json())
-          .then((json) => {
-            this.map.removeLayer(this.geoLayer);
-            this.geoLayer = L.geoJson(json, { style: this.getStyle }).addTo(this.map);
-          });
+        this.setRouteData(this.selectedRoute, year);
       },
     },
+
     methods: {
       drawMap() {
         const tilburg = [51.5590, 5.0808];
@@ -68,15 +74,33 @@
           id: 'mapbox.light',
         }).addTo(this.map);
 
-        this.geoLayer = L.geoJson(data, { style: this.getStyle }).addTo(this.map);
-
-        this.map.attributionControl.addAttribution('Snelfietsroutes in Noord-Brabant');
-        this.setLegend();
+        this.setRouteData(this.selectedRoute, this.selectedYear, true)
+          .then(() => {
+            this.map.attributionControl.addAttribution('Snelfietsroutes in Noord-Brabant');
+            this.setLegend();
+          });
       },
+
+      setRouteData(route, year, initialize = false) {
+        const HOST = '../../static/';
+        const filename = getFileName(route, year);
+        if (filename === null) return;
+
+        return fetch(HOST + filename)
+          .then(resp => resp.json())
+          .then((json) => {
+            if (!initialize) {
+              this.map.removeLayer(this.geoLayer);
+            }
+            this.geoLayer = L.geoJson(json, { style: this.getStyle }).addTo(this.map);
+          });
+      },
+
       getStyle(feature) {
         const { properties: { INTENSITEI, SNELHEID_R } } = feature;
         return getStyle(INTENSITEI, SNELHEID_R);
       },
+
       setLegend() {
         this.legend = L.control({ position: 'bottomright' });
         this.legend.onAdd = () => {
@@ -107,7 +131,7 @@
 <style scoped>
   #map {
     height: 520px;
-    z-index: 1;
+    z-index: 0;
   }
 
   @media (min-height: 750px) {

@@ -19,8 +19,8 @@
       </v-bottom-nav>
     </v-card>
     <div id="map">
+      <loader :loading="loading"></loader>
     </div>
-    <!--<loader :loading="true"></loader>-->
   </div>
 </template>
 
@@ -32,7 +32,7 @@
   import Loader from './Loader';
 
   export default {
-    /*components: { Loader },*/
+    components: { Loader },
 
     data: () => ({
       mapboxAccessToken: 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw',
@@ -86,6 +86,8 @@
         const filename = getFileName(route, year);
         if (filename === null) return;
 
+        this.loading = true;
+
         return fetch(HOST + filename)
           .then(resp => resp.json())
           .then((json) => {
@@ -93,6 +95,7 @@
               this.map.removeLayer(this.geoLayer);
             }
             this.geoLayer = L.geoJson(json, { style: this.getStyle }).addTo(this.map);
+            this.loading = false;
           });
       },
 

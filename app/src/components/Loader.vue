@@ -1,5 +1,5 @@
 <template>
-  <div class="sk-circle">
+  <div class="sk-circle" v-if="loading">
     <div class="sk-circle1 sk-child"></div>
     <div class="sk-circle2 sk-child"></div>
     <div class="sk-circle3 sk-child"></div>
@@ -28,8 +28,8 @@
     margin: 100px auto;
     width: 40px;
     height: 40px;
-    position: relative;
     z-index: 2;
+    position: relative;
   }
 
   .sk-circle .sk-child {

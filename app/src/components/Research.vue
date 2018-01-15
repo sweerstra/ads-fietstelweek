@@ -4,6 +4,9 @@
       <v-flex xs12 sm6>
         <v-card>
           <v-card-media src="../static/fiets-header.jpg" height="200px">
+            <div class="image-label leaflet-control-attribution leaflet-control">
+              <a href="https://www.holland.com/be_nl/toerisme/plan-uw-vakantie/vervoer-in-nederland/fietsen-door-nederland.htm" title="holland.com">holland.com</a>
+            </div>
           </v-card-media>
           <v-container fill-height fluid>
             <v-layout row fill-height>
@@ -90,6 +93,9 @@
         </template>
       </v-data-table> -->
         <v-card-media src="/static/fiets-card.jpg" height="500px">
+          <div class="image-label leaflet-control-attribution leaflet-control">
+            <a href="https://www.studenten.net/artikel/mijn-fiets-is-weer-gestolen!" title="studenten.net">studenten.net</a>
+          </div>
         </v-card-media>
       </v-flex>
     </v-layout>

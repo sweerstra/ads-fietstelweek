@@ -6,3 +6,12 @@
 .red--text {
   color: #084E11 !important;
 }
+
+.image-label {
+  background-color: white;
+  z-index: 0;
+  align-self: baseline;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}

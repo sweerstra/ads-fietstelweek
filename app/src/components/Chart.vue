@@ -4,6 +4,9 @@
       <v-flex xs12 sm12>
         <v-card>
           <v-card-media src="../static/motive-header.jpg" height="200px">
+            <div class="image-label leaflet-control-attribution leaflet-control">
+              <a href="https://www.duic.nl/algemeen/fotos-storm-op-fiets-utrecht/" title="duic.nl">duic.nl</a>
+            </div>
           </v-card-media>
           <v-container fill-height fluid>
             <v-layout row fill-height>

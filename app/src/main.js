@@ -6,6 +6,7 @@ import 'leaflet/dist/leaflet';
 import 'leaflet/dist/leaflet.css';
 
 import './assets/map.css';
+import './assets/main.css';
 
 import App from './App';
 import router from './router';

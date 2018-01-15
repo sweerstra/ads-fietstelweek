@@ -5,12 +5,12 @@ const Files = {
     { year: '2017', name: 'oss-denbosch-2017.geojson' },
   ],
   Eindhoven: [
-    { year: '2015', name: null },
-    { year: '2016', name: null },
-    { year: '2017', name: null },
+    { year: '2015', name: 'snelfietsroutes-2015.geojson' },
+    { year: '2016', name: 'Snelfietsroutes2016.geojson' },
+    { year: '2017', name: 'Snelfietsroutes2017.geojson' },
   ],
   Tilburg: [
-    { year: '2015', name: 'tilburg-oisterwijk-2015.geojson' },
+    { year: '2015', name: null },
     { year: '2016', name: 'tilburg-oisterwijk-2016.geojson' },
     { year: '2017', name: null },
   ],

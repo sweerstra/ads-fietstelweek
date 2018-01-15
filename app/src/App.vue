@@ -60,8 +60,8 @@
     data: () => ({
       drawer: true,
       items: [
-        { icon: 'map', title: 'Snelfietsroutes in kaart', to: '/' },
         { icon: 'search', title: 'Wat zijn snelfietsroutes?', to: '/research' },
+        { icon: 'map', title: 'Snelfietsroutes in kaart', to: '/' },
         { icon: 'bar_chart', title: 'Motieven fietsers', to: '/chart' },
       ],
       clipped: true,

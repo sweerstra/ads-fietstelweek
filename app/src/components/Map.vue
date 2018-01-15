@@ -50,7 +50,7 @@
         this.drawMap();
 
         EventBus.$on('search', (input) => {
-          this.map.setView(input.location, 13);
+          this.map.setView(input.location, 12);
           this.selectedRoute = input.key;
 
           this.setRouteData(this.selectedRoute, this.selectedYear);
@@ -66,8 +66,8 @@
 
     methods: {
       drawMap() {
-        const tilburg = [51.5590, 5.0808];
-        this.map = L.map('map').setView(tilburg, 10);
+        const tilburg = [51.568441, 5.153563];
+        this.map = L.map('map').setView(tilburg, 13);
 
         this.streetLayer = L.tileLayer(`https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=${this.mapboxAccessToken}`, {
           maxZoom: 14,

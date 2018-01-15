@@ -37,6 +37,7 @@
         placeholder="Kies een snelfietsroute"
         dark
         return-object
+        @change="routeChange"
         @keyup.enter="searchMap"
       ></v-select>
     </v-toolbar>
@@ -73,23 +74,34 @@
         {
           key: 'Oss',
           value: 'Oss - Den Bosch',
-          location: [51.761180, 5.514048],
+          location: [51.7377855, 5.4582737],
         },
         {
           key: 'Eindhoven',
           value: 'Eindhoven - Valkenswaard',
-          location: [51.441642, 5.469722],
+          location: [51.381642, 5.469722],
         },
         {
           key: 'Tilburg',
           value: 'Tilburg - Oisterwijk',
-          location: [51.565424, 5.203028],
+          location: [51.568441, 5.153563],
+        },
+        {
+          key: 'Ettenleur',
+          value: 'Ettenleur - Breda',
+          location: [51.586998, 4.709095],
+        },
+        {
+          key: 'Veghel',
+          value: 'Veghel - Den Bosch',
+          location: [51.65667, 5.47861],
         },
       ],
     }),
-    watch: {
-      route: (newValue) => {
-        EventBus.$emit('search', newValue);
+
+    methods: {
+      routeChange(route) {
+        EventBus.$emit('search', route);
       },
     },
   };

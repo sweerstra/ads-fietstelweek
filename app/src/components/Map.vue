@@ -39,6 +39,7 @@
       map: null,
       streetLayer: null,
       geoLayer: null,
+      overlayGeoLayer: null,
       legend: null,
       selectedYear: '2016',
       selectedRoute: 'Tilburg',
@@ -95,7 +96,24 @@
               this.map.removeLayer(this.geoLayer);
             }
             this.geoLayer = L.geoJson(json, { style: this.getStyle }).addTo(this.map);
+
             this.loading = false;
+
+            if (route === 'Eindhoven' && year === '2017') {
+              return fetch(HOST + 'EV/marked.geojson')
+                .then(resp => resp.json())
+                .then((jsonTwo) => {
+                  this.overlayGeoLayer = L.geoJson(jsonTwo, {
+                    style: {
+                      strokeWidth: 5,
+                      'stroke-opacity': 0.5,
+                      color: '#0addda'
+                    }
+                  }).addTo(this.map);
+                });
+            } else {
+              this.map.removeLayer(this.overlayGeoLayer);
+            }
           });
       },
 

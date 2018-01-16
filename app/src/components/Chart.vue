@@ -78,7 +78,7 @@
         this.myChart = new Chart(this.ctx, {
           type: "bar",
           data: {
-            labels: ["Kruispunten", "Tegels", "Kinderkoppen", "Asfalt", "Bomen", "Bebossing", "Verlichting", "Fiets strook", "Fietspad", "Rottonde", "Verkeerslichten"],
+            labels: ["Kruispunten", "Tegels", "Kinderkoppen", "Asfalt", "Bomen", "Bebossing", "Verlichting", "Fietsstrook", "Fietspad", "Rotonde", "Verkeerslichten"],
             datasets: [
               {
                 label: "Average evaluation score",

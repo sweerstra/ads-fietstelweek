@@ -25,6 +25,7 @@
     <v-toolbar
       fixed class="red">
       <v-toolbar-side-icon class="white--text" @click.native.stop="drawer = !drawer"></v-toolbar-side-icon>
+      <img src="../static/just_the_bicycle.png" height="30"/>
       <v-toolbar-title class="white--text" v-text="title"></v-toolbar-title>
       <v-spacer></v-spacer>
       <v-select
@@ -48,7 +49,7 @@
     </main>
     <v-footer
       :fixed="fixed">
-      <span>&copy; 2017 - Fast Cycle Routes</span>
+      <span>&copy; 2017 - Snelfietsroutes</span>
       <v-spacer></v-spacer>
     </v-footer>
   </v-app>
@@ -67,7 +68,7 @@
       ],
       clipped: true,
       enableResize: true,
-      title: 'Fast Cycle Routes',
+      title: 'Snelfietsroutes',
       fixed: true,
       route: 'Tilburg',
       routes: [

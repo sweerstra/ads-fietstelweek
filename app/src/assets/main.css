@@ -9,6 +9,7 @@
 
 .image-label {
   background-color: white;
+  font-size: 10px;
   z-index: 0;
   align-self: baseline;
   position: absolute;

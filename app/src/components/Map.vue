@@ -105,14 +105,17 @@
                 .then((jsonTwo) => {
                   this.overlayGeoLayer = L.geoJson(jsonTwo, {
                     style: {
-                      strokeWidth: 5,
-                      'stroke-opacity': 0.5,
-                      color: '#0addda'
+                      weight: 15.0,
+                      opacity: 1,
+                      fillOpacity: 0,
+                      color: 'rgba(1,204,255,0.341176470588)'
                     }
                   }).addTo(this.map);
                 });
             } else {
-              this.map.removeLayer(this.overlayGeoLayer);
+              if (this.overlayGeoLayer) {
+                this.map.removeLayer(this.overlayGeoLayer);
+              }
             }
           });
       },

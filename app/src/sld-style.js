@@ -12,8 +12,8 @@ export const getColors = () => styleMap.map(x => x.line.stroke);
 export const getStyle = (intensiteit, snelheidR) => {
   const style = styleMap.find(x => snelheidR >= x.from && snelheidR <= x.to);
 
-  const strokeWidth = getStrokeWidth(intensiteit);
+  const weight = getStrokeWidth(intensiteit);
   const color = style.line.stroke;
 
-  return { strokeWidth, color };
+  return { weight, color };
 };

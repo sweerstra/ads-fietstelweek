@@ -51,7 +51,7 @@
       :fixed="fixed">
       <span>&copy; 2017 - Snelfietsroutes</span>
       <v-spacer></v-spacer>
-      <a href="http://drive.google.com">referentie onderzoek</a>
+      <a href="../static/Onderzoek%20snelfietswegen.pdf" target="_blank">referentie onderzoek</a>
     </v-footer>
   </v-app>
 </template>

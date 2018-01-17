@@ -89,6 +89,14 @@
 
         this.loading = true;
 
+        const Groups = {
+          Oss: '1',
+          Veghel: '2',
+          Tilburg: '3',
+          Eindhoven: '4',
+          Ettenleur: '5',
+        };
+
         return fetch(HOST + filename)
           .then(resp => resp.json())
           .then((json) => {
@@ -97,16 +105,23 @@
             }
             this.geoLayer = L.geoJson(json, { style: this.getStyle }).addTo(this.map);
 
+            const selectedGroup = Groups[route];
+
             return fetch(HOST + 'EV/marked.geojson')
               .then(resp => resp.json())
               .then((jsonTwo) => {
+                if (this.overlayGeoLayer) {
+                  this.map.removeLayer(this.overlayGeoLayer);
+                }
+
                 this.overlayGeoLayer = L.geoJson(jsonTwo, {
                   style: {
                     weight: 15.0,
                     opacity: 1,
                     fillOpacity: 0,
                     color: 'rgba(1,204,255,0.341176470588)'
-                  }
+                  },
+                  filter: ((feature) => feature.properties.group === selectedGroup)
                 }).addTo(this.map);
                 this.loading = false;
               });

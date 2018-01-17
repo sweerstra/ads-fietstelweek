@@ -19,10 +19,14 @@ RUN \
 # VOLUME ["/data/db"]
 
 # Define directories to copy.
-VOLUME ["/opt/data/db/brabant-2015.geojson"]
+VOLUME "/data/db"
 
 # Define working directory.
 WORKDIR /data
+
+# Add dataset
+CMD mongoimport --db brabant --collection oisterwijk --type json --file /data/db/TilburgOisterwijkLinks.geojson
+# mongoimport --db brabant --collection oisterwijk --type json --file ~/Downloads/TilburgOisterwijkLinks.geojson
 
 # Define default command.
 CMD ["mongod"]

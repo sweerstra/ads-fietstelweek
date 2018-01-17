@@ -25,17 +25,22 @@
     <v-toolbar
       fixed class="red">
       <v-toolbar-side-icon class="white--text" @click.native.stop="drawer = !drawer"></v-toolbar-side-icon>
+      <img src="../static/just_the_bicycle.png" height="30"/>
       <v-toolbar-title class="white--text" v-text="title"></v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-text-field
-        v-model="city"
-        id="city"
-        placeholder="Zoek een plaats"
-        append-icon="search"
+      <v-select
+        v-if="$route.name === 'Map'"
+        v-bind:items="routes"
+        v-model="route"
+        item-text="value"
+        item-value="key"
+        id="route"
+        placeholder="Kies een snelfietsroute"
         dark
-        autocomplete="off"
+        return-object
+        @change="routeChange"
         @keyup.enter="searchMap"
-      ></v-text-field>
+      ></v-select>
     </v-toolbar>
     <main>
       <v-container fluid>
@@ -44,8 +49,9 @@
     </main>
     <v-footer
       :fixed="fixed">
+      <span>&copy; 2017 - Snelfietsroutes</span>
       <v-spacer></v-spacer>
-      <span>&copy; 2017 - Bicycle data</span>
+      <a href="../static/Onderzoek%20snelfietswegen.pdf" target="_blank">referentie onderzoek</a>
     </v-footer>
   </v-app>
 </template>
@@ -57,52 +63,60 @@
     data: () => ({
       drawer: true,
       items: [
-        { icon: 'home', title: 'Home', to: '/' },
-        { icon: 'network_check', title: 'Graphs', to: '/graph' },
+        { icon: 'search', title: 'Wat zijn snelfietsroutes?', to: '/research' },
+        { icon: 'map', title: 'Snelfietsroutes in kaart', to: '/' },
+        { icon: 'bar_chart', title: 'Motieven fietsers', to: '/chart' },
       ],
       clipped: true,
       enableResize: true,
-      title: 'Bicycle data',
-      fixed: false,
-      city: '',
+      title: 'Snelfietsroutes',
+      fixed: true,
+      route: 'Tilburg',
+      routes: [
+        {
+          key: 'Oss',
+          value: 'Oss - Den Bosch',
+          location: [51.7377855, 5.4582737],
+        },
+        {
+          key: 'Eindhoven',
+          value: 'Eindhoven - Valkenswaard',
+          location: [51.381642, 5.469722],
+        },
+        {
+          key: 'Tilburg',
+          value: 'Tilburg - Oisterwijk',
+          location: [51.568441, 5.153563],
+        },
+        {
+          key: 'Ettenleur',
+          value: 'Ettenleur - Breda',
+          location: [51.586998, 4.709095],
+        },
+        {
+          key: 'Veghel',
+          value: 'Veghel - Den Bosch',
+          location: [51.65667, 5.47861],
+        },
+      ],
     }),
 
     methods: {
-      searchMap() {
-        EventBus.$emit('search', this.city);
+      routeChange(route) {
+        EventBus.$emit('search', route);
       },
     },
   };
 </script>
 
-<style>
-  #app {
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  }
-
+<style scoped>
   #e3, #e3 .container {
-    min-height: 700px;
+    min-height: 600px;
     overflow: hidden;
     z-index: 0;
   }
 
-  #e3 .input-group__details:after {
-    background-color: rgba(255, 255, 255, 0.32) !important;
-  }
-
-  .input-group__append-icon {
-    color: rgba(255, 255, 255, 0.32) !important;
-  }
-
-  ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-    color: rgba(255, 255, 255, 0.8);
-  }
-
-  #city {
-    caret-color: white;
-  }
-
-  .input-group__append-icon {
-    color: white !important;
+  .list__tile--active {
+    color: red !important;
   }
 </style>

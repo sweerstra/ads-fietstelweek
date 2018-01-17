@@ -1,7 +1,11 @@
 // Specify overrides (theme and/or base variables etc.)
 // See https://vuetifyjs.com/quick-start
+
+// Import Vuetify styling
+@require '~vuetify/src/stylus/main.styl'
+
 $theme := {
-  primary: red
+  primary: #084E11
   accent: #ce93d8
   secondary: #424242
   info: #0D47A1
@@ -9,9 +13,6 @@ $theme := {
   error: #B71C1C
   success: #2E7D32
 }
-
-// Import Vuetify styling
-@require '~vuetify/src/stylus/main.styl'
 
 .page
   @extend .fade-transition

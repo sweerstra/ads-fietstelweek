@@ -1,0 +1,18 @@
+.red {
+  background-color: #084E11 !important;
+  border-color: #084E11 !important;
+}
+
+.red--text {
+  color: #084E11 !important;
+}
+
+.image-label {
+  background-color: white;
+  font-size: 10px;
+  z-index: 0;
+  align-self: baseline;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}

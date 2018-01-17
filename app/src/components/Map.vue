@@ -97,26 +97,19 @@
             }
             this.geoLayer = L.geoJson(json, { style: this.getStyle }).addTo(this.map);
 
-            this.loading = false;
-
-            if (route === 'Eindhoven' && year === '2017') {
-              return fetch(HOST + 'EV/marked.geojson')
-                .then(resp => resp.json())
-                .then((jsonTwo) => {
-                  this.overlayGeoLayer = L.geoJson(jsonTwo, {
-                    style: {
-                      weight: 15.0,
-                      opacity: 1,
-                      fillOpacity: 0,
-                      color: 'rgba(1,204,255,0.341176470588)'
-                    }
-                  }).addTo(this.map);
-                });
-            } else {
-              if (this.overlayGeoLayer) {
-                this.map.removeLayer(this.overlayGeoLayer);
-              }
-            }
+            return fetch(HOST + 'EV/marked.geojson')
+              .then(resp => resp.json())
+              .then((jsonTwo) => {
+                this.overlayGeoLayer = L.geoJson(jsonTwo, {
+                  style: {
+                    weight: 15.0,
+                    opacity: 1,
+                    fillOpacity: 0,
+                    color: 'rgba(1,204,255,0.341176470588)'
+                  }
+                }).addTo(this.map);
+                this.loading = false;
+              });
           });
       },
 

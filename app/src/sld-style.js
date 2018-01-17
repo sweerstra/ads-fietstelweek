@@ -2,8 +2,8 @@ const str = '[{"from":0,"to":0.1,"line":{"stroke":"#d7191c","stroke-width":"1","
 export const styleMap = JSON.parse(str);
 
 const getStrokeWidth = (intensiteit) => {
-  if (intensiteit < 50) return 1;
-  if (intensiteit < 100) return 2;
+  if (intensiteit < 30) return 1;
+  if (intensiteit < 75) return 2;
   return 4;
 };
 
